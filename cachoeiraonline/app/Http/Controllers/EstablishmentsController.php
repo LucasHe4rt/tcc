@@ -33,5 +33,7 @@ class EstablishmentsController extends Controller
         $estab = new Establishments();
         $estab->create($estabData);
 
+        return redirect()->route('establishment.index');
+
     }
 }

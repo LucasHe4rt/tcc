@@ -18,4 +18,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+
+    public function establishments(){
+
+        return $this->hasMany(Establishments::class);
+
+    }
+
 }
