@@ -14,7 +14,7 @@ class EstablishmentsController extends Controller
         $estabs = Establishments::all();
         $user = User::all();
 
-        return view('dashboard.establishments.index',['estabs' => $estabs,'user' => $user]);
+        return view('dashboard.establishments.index',['estabs' => $estabs]);
 
     }
 
@@ -32,6 +32,26 @@ class EstablishmentsController extends Controller
 
         $estab = new Establishments();
         $estab->create($estabData);
+
+        return redirect()->route('establishment.index');
+
+    }
+
+    public function edit($id){
+
+        $estab = Establishments::findOrFail($id);
+        $user = User::all(['id','name']);
+
+        return view('dashboard.establishments.edit',['estab' => $estab,'user' => $user]);
+
+    }
+
+    public function update(Request $request,$id){
+
+        $estab = Establishments::findOrFail($id);
+        $estabData = $request->all();
+
+        $estab->update($estabData);
 
         return redirect()->route('establishment.index');
 

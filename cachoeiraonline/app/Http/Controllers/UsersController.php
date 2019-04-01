@@ -27,10 +27,37 @@ class UsersController extends Controller
         $userData['password'] = bcrypt($userData['password']);
 
         $user = new User();
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->cpf = $request->input('cpf');
+        $user->password = bcrypt($request->input('password'));
 
-        $user->create($userData);
+        $photo = $request->file('profile_photo');
 
-        return redirect()->route('user.index');
+        echo $request->file('profile_photo');
+
+        if (isset($photo)){
+
+            $newName = sha1($photo->getClientOriginalName()) . uniqid() . '.' . $photo->getClientOriginalExtension();
+            $photo->move(public_path('img'.DIRECTORY_SEPARATOR.'usersProfile'),$newName);
+
+            $user->profile_photo = 'img'.DIRECTORY_SEPARATOR.'usersProfile'.DIRECTORY_SEPARATOR.$newName;
+
+           echo 1;
+           die();
+
+            $user->save();
+
+        }else{
+
+            echo 0;
+
+            die();
+            $user->save();
+
+        }
+
+        //return redirect()->route('user.index');
     }
 
     public function edit($id){

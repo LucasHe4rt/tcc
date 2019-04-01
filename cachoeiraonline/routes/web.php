@@ -50,6 +50,28 @@ Route::prefix('dashboard')->group(function (){
 
     });
 
+    Route::prefix('phoneEstab')->group(function (){
+
+        Route::get('','PhonesEstabController@index')->name('phoneEstab.index');
+        Route::get('/store','PhonesEstabController@store')->name('phoneEstab.store');
+        Route::post('/new','PhonesEstabController@new')->name('phoneEstab.new');
+        Route::get('/edit/{id}','PhonesEstabController@edit')->name('phoneEstab.edit');
+        Route::post('/update/{id}','PhonesEstabController@update')->name('phoneEstab.update');
+        Route::get('/remove/{id}','PhonesEstabController@remove')->name('phoneEstab.remove');
+
+    });
+
+    Route::prefix('phoneUsers')->group(function (){
+
+        Route::get('','PhonesUsersController@index')->name('phoneUsers.index');
+        Route::get('/store','PhonesUsersController@store')->name('phoneUsers.store');
+        Route::post('/new','PhonesUsersController@new')->name('phoneUsers.new');
+        Route::get('/edit/{id}','PhonesUsersController@edit')->name('phoneUsers.edit');
+        Route::post('/update/{id}','PhonesUsersController@update')->name('phoneUsers.update');
+        Route::get('/remove/{id}','PhonesUsersController@remove')->name('phoneUsers.remove');
+
+    });
+
 });
 
 

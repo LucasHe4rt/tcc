@@ -14,7 +14,7 @@
     </div>
     <div>
         <label for="profile_photo">Foto de perfil</label>
-        <input id="profile_photo" name="profile_photo" type="file">
+        <input type="file" name="profile_photo">
     </div>
     <div>
         <label for="password">Senha</label>
