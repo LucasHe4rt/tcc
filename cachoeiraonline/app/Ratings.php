@@ -9,8 +9,14 @@ class Ratings extends Model
 
     protected $fillable = [
 
-        'ratings', 'description'
+        'ratings', 'description','establishments_id'
 
     ];
+
+    public function establishment(){
+
+        return $this->belongsTo(Establishments::class,'establishments_id');
+
+    }
 
 }

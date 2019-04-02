@@ -1,4 +1,4 @@
-<form method="post" action="{{route('user.update',['id' => $user->id])}}">
+<form method="post" action="{{route('user.update',['id' => $user->id])}}" enctype="multipart/form-data">
     @csrf
     <div>
         <label for="name">Nome</label>

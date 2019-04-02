@@ -2,6 +2,7 @@
 <table>
     <thead>
         <th>#</th>
+        <th>Foto</th>
         <th>Name</th>
         <th>Email</th>
         <th>Criado em</th>

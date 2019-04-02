@@ -9,8 +9,14 @@ class Photos extends Model
 
     protected $fillable = [
 
-        'directory'
+        'directory','establishments_id'
 
         ];
 
+
+    public function establishment(){
+
+        return $this->belongsTo(Establishments::class,'establishments_id');
+
+    }
 }

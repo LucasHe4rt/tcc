@@ -32,32 +32,26 @@ class UsersController extends Controller
         $user->cpf = $request->input('cpf');
         $user->password = bcrypt($request->input('password'));
 
-        $photo = $request->file('profile_photo');
 
-        echo $request->file('profile_photo');
 
-        if (isset($photo)){
+        if($request->hasFile('profile_photo')){
 
+            $photo = $request->file('profile_photo');
             $newName = sha1($photo->getClientOriginalName()) . uniqid() . '.' . $photo->getClientOriginalExtension();
             $photo->move(public_path('img'.DIRECTORY_SEPARATOR.'usersProfile'),$newName);
 
             $user->profile_photo = 'img'.DIRECTORY_SEPARATOR.'usersProfile'.DIRECTORY_SEPARATOR.$newName;
 
-           echo 1;
-           die();
-
             $user->save();
+
 
         }else{
 
-            echo 0;
-
-            die();
             $user->save();
 
         }
 
-        //return redirect()->route('user.index');
+        return redirect()->route('user.index');
     }
 
     public function edit($id){
@@ -72,19 +66,37 @@ class UsersController extends Controller
 
         $user = User::findOrFail($id);
 
-        $userData = $request->all();
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->cpf = $request->input('cpf');
+        $password = $request->input('password');
 
-        if(isset($userData['password'])){
+        if(isset($password)){
 
-            $userData['password'] = bcrypt($userData['password']);
+            $userData['password'] = bcrypt($request->input('password'));
 
         }else{
 
-            $userData['password'] = $user->password;
+            $user->password = $user->password;
 
         }
 
-        $user->update($userData);
+        if($request->hasFile('profile_photo')){
+
+            $photo = $request->file('profile_photo');
+            $newName = sha1($photo->getClientOriginalName()) . uniqid() . '.' . $photo->getClientOriginalExtension();
+            $photo->move(public_path('img'.DIRECTORY_SEPARATOR.'usersProfile'),$newName);
+
+            $user->profile_photo = 'img'.DIRECTORY_SEPARATOR.'usersProfile'.DIRECTORY_SEPARATOR.$newName;
+
+            $user->save();
+
+
+        }else{
+
+            $user->save();
+
+        }
 
 
         return redirect()->back();

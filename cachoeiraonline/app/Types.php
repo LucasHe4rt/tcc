@@ -9,8 +9,14 @@ class Types extends Model
 
     protected $fillable = [
 
-        'name'
+        'name','establishments_id'
 
     ];
+
+    public function establishment(){
+
+        return $this->belongsTo(Establishments::class,'establishments_id');
+
+    }
 
 }
