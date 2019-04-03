@@ -72,6 +72,17 @@ Route::prefix('dashboard')->group(function (){
 
     });
 
+    Route::prefix('types')->group(function (){
+
+        Route::get('','TypesController@index')->name('types.index');
+        Route::get('/store','TypesController@store')->name('types.store');
+        Route::post('/new','TypesController@new')->name('types.new');
+        Route::get('/edit/{id}','TypesController@edit')->name('types.edit');
+        Route::post('/update/{id}','TypesController@update')->name('types.update');
+        Route::get('/remove/{id}','TypesController@remove')->name('types.remove');
+
+    });
+
 });
 
 

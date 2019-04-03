@@ -5,6 +5,7 @@
             <th>#</th>
             <th>Name</th>
             <th>CNPJ</th>
+            <th>Tipo</th>
             <th>Usuário</th>
             <th>Criado em</th>
             <th>Atualizado em</th>
@@ -17,6 +18,7 @@
                 <td>{{$e->id}}</td>
                 <td>{{$e->name}}</td>
                 <td>{{$e->cnpj}}</td>
+                <td>{{$e->type->name}}</td>
                 <td>{{$e->user->name}}</td>
                 <td>{{$e->created_at}}</td>
                 <td>{{$e->updated_at}}</td>

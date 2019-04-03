@@ -16,8 +16,6 @@ class CreateTypesTable extends Migration
         Schema::create('types', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('establishments_id')->unsigned();
-            $table->foreign('establishments_id')->references('id')->on('establishments');
             $table->timestamps();
         });
     }

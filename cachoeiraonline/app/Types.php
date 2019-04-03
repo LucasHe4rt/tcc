@@ -15,7 +15,7 @@ class Types extends Model
 
     public function establishment(){
 
-        return $this->belongsTo(Establishments::class,'establishments_id');
+        return $this->hasOne(Establishments::class,'establishments_id');
 
     }
 

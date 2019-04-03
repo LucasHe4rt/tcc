@@ -9,6 +9,15 @@
         <input id="cnpj" name="cnpj" type="text">
     </div>
     <div>
+        <label for="types_id">Tipo</label>
+        <select id="types_id" name="types_id">
+            <option value="">Selecione um tipo</option>
+            @foreach($types as $t)
+                <option value="{{$t->id}}">{{$t->name}}</option>
+            @endforeach
+        </select>
+    </div>
+    <div>
         <label for="address">Endereço</label>
         <input id="address" name="address" type="text">
     </div>
