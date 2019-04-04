@@ -14,6 +14,15 @@ try {
     require('bootstrap');
 } catch (e) {}
 
+try {
+    window.$ = window.jQuery = require('jquery');
+
+    require('bootstrap');
+
+    window.toastr = require('toastr');
+
+} catch (e) { }
+
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the
@@ -54,3 +63,4 @@ if (token) {
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+

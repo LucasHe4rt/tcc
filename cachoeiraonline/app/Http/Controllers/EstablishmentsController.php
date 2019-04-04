@@ -6,6 +6,7 @@ use App\Establishments;
 use App\Types;
 use App\User;
 use Illuminate\Http\Request;
+use TJGazel\Toastr\Facades\Toastr;
 
 class EstablishmentsController extends Controller
 {
@@ -13,9 +14,14 @@ class EstablishmentsController extends Controller
     public function index(){
 
         $estabs = Establishments::all();
-        $user = User::all();
+        $users = User::all(['id','name']);
+        $types = Types::all(['id','name']);
 
-        return view('dashboard.establishments.index',['estabs' => $estabs]);
+        return view('dashboard.establishments.index',[
+            'estabs' => $estabs,
+            'types' => $types,
+            'users' => $users
+        ]);
 
     }
 
@@ -34,6 +40,8 @@ class EstablishmentsController extends Controller
 
         $estab = new Establishments();
         $estab->create($estabData);
+
+        toastr()->success('Estabelecimento adicionado!');
 
         return redirect()->route('establishment.index');
 
@@ -56,7 +64,19 @@ class EstablishmentsController extends Controller
 
         $estab->update($estabData);
 
-        return redirect()->route('establishment.index');
+        toastr()->success('Estabelecimento atualizado!');
 
+        return redirect()->back();
+
+    }
+
+    public function remove($id){
+
+        $estab = Establishments::findOrFail($id);
+        $estab->delete();
+
+        toastr()->success('Estabelecimento removido!');
+
+        return redirect()->route('establishment.index');
     }
 }

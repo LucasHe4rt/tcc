@@ -31,7 +31,8 @@ class AdminsController extends Controller
 
         $admin->create($adminData);
 
-        print 'Administrador criado.';
+        toastr()->success('Administrador adicionado!');
+
 
         return redirect()->route('admin.index');
     }
@@ -62,6 +63,7 @@ class AdminsController extends Controller
 
         $admin->update($adminData);
 
+        toastr()->success('Administrador atualizado!');
 
         return redirect()->back();
 
@@ -73,7 +75,7 @@ class AdminsController extends Controller
 
         $admin->delete();
 
-        print 'Administrador deletado!';
+        toastr()->success('Administrador removido!');
 
         return redirect()->route('admin.index');
     }

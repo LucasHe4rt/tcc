@@ -11,8 +11,9 @@ class PhonesUsersController extends Controller
     public function index(){
 
         $phones = PhonesUsers::all();
+        $users = User::all(['id','name']);
 
-        return view('dashboard.phonesUsers.index',['phones' => $phones]);
+        return view('dashboard.phonesUsers.index',['phones' => $phones,'users' => $users]);
 
     }
 
@@ -31,6 +32,8 @@ class PhonesUsersController extends Controller
         $phoneData = $request->all();
 
         $phone->create($phoneData);
+
+        toastr()->success('Telefone de usuário adicionado!');
 
         return redirect()->route('phoneUsers.index');
 
@@ -51,6 +54,8 @@ class PhonesUsersController extends Controller
 
         $phone->update($phoneData);
 
+        toastr()->success('Telefone de usuário atualizado!');
+
         return redirect()->back();
 
     }
@@ -59,6 +64,8 @@ class PhonesUsersController extends Controller
 
         $phone = PhonesUsers::findOrFail($id);
         $phone->delete();
+
+        toastr()->success('Telefone de usuário removido!');
 
         return redirect()->route('phoneUsers.index');
 

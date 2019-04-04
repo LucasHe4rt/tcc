@@ -29,6 +29,8 @@ class TypesController extends Controller
         $type = new Types();
         $type->create($typeData);
 
+        toastr()->success('Categoria adicionada!');
+
         return redirect()->route('types.index');
 
     }
@@ -48,6 +50,8 @@ class TypesController extends Controller
 
         $type->update($typeData);
 
+        toastr()->success('Categoria atualizada!');
+
         return redirect()->back();
 
     }
@@ -56,6 +60,8 @@ class TypesController extends Controller
 
         $type = Types::findOrFail($id);
         $type->delete();
+
+        toastr()->success('Categoria removida!');
 
         return redirect()->route('types.index');
 

@@ -12,8 +12,9 @@ class PhonesEstabController extends Controller
     public function index(){
 
         $phones = PhonesEstab::all();
+        $estabs = Establishments::all(['id','name']);
 
-        return view('dashboard.phonesEstab.index',['phones' => $phones]);
+        return view('dashboard.phonesEstab.index',['phones' => $phones,'estabs' => $estabs]);
 
     }
 
@@ -33,11 +34,14 @@ class PhonesEstabController extends Controller
 
         $phone->create($phoneData);
 
+        toastr()->success('Telefone de estabelecimento adicionado!');
+
         return redirect()->route('phoneEstab.index');
 
     }
 
     public function edit($id){
+
         $estabs = Establishments::all(['id','name']);
         $phone = PhonesEstab::findOrFail($id);
 
@@ -52,6 +56,8 @@ class PhonesEstabController extends Controller
 
         $phone->update($phoneData);
 
+        toastr()->success('Telefone de estabelecimento atualizado!');
+
         return redirect()->back();
 
     }
@@ -60,6 +66,8 @@ class PhonesEstabController extends Controller
 
         $phone = PhonesEstab::findOrFail($id);
         $phone->delete();
+
+        toastr()->success('Telefone de estabelecimento removido!');
 
         return redirect()->route('phoneEstab.index');
 

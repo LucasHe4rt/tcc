@@ -51,6 +51,9 @@ class UsersController extends Controller
 
         }
 
+        toastr()->success('Usuário adicionado!');
+
+
         return redirect()->route('user.index');
     }
 
@@ -98,6 +101,7 @@ class UsersController extends Controller
 
         }
 
+        toastr()->success('Usuário atualizado!');
 
         return redirect()->back();
 
@@ -108,6 +112,8 @@ class UsersController extends Controller
         $user = User::findOrFail($id);
 
         $user->delete();
+
+        toastr()->success('Usuário removido!');
 
         return redirect()->route('user.index');
     }

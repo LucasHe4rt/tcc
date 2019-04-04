@@ -5,8 +5,8 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-info">
-                        <h4 class="card-title ">Estabelecimentos</h4>
-                        <a href="{{route('user.store')}}" class="card-category">Clique aqui para adicionar um novo usuário.</a>
+                        <h4 class="card-title ">Usuários</h4>
+                        <a href="javascript:void(0)" class="card-category" data-toggle="modal" data-target="#Modal">Clique aqui para adicionar um novo usuário.</a>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -16,6 +16,7 @@
                                     <th>Foto</th>
                                     <th>Name</th>
                                     <th>Email</th>
+                                    <th>CPF</th>
                                     <th>Criado em</th>
                                     <th>Atualizado em</th>
                                     <th>Ações</th>
@@ -33,6 +34,7 @@
                                         </td>
                                         <td>{{$u->name}}</td>
                                         <td>{{$u->email}}</td>
+                                        <td>{{$u->cpf}}</td>
                                         <td>{{date_format($u->created_at,'d/m/Y')}}</td>
                                         <td>{{date_format($u->updated_at,'d/m/Y')}}</td>
                                         <td>
@@ -45,6 +47,47 @@
                             </table>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div  class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="establishmentModalLabel" aria-hidden="true">
+        <div class="modal-dialog " role="document">
+            <div class="modal-content dark-edition">
+                <div style="background-color: #029eb1" class="modal-header">
+                    <h5 style="color: #ffffff" class="modal-title" id="establishmentModalLabel">Novo Estabelecimento</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span style="color: #ffffff" aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" action="{{route('user.new')}}" enctype="multipart/form-data">
+                        @csrf
+                        <div class="form-group">
+                            <label for="name" class="bmd-label-floating">Nome</label>
+                            <input type="text" class="form-control" name="name" id="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="bmd-label-floating">Email</label>
+                            <input type="email" class="form-control" name="email" id="email">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cpf" class="bmd-label-floating">CPF</label>
+                            <input type="text" class="form-control" name="cpf" id="cpf">
+                        </div>
+                        <div class="form-group">
+                            <label for="profile_photo" class="bmd-label-floating">Foto de perfil</label>
+                            <input type="file" class="form-control" name="profile_photo" id="profile_photo">
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="bmd-label-floating">Senha</label>
+                            <input type="password" class="form-control" name="password" id="password">
+                        </div>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-info">Adicionar</button>
+                    </form>
                 </div>
             </div>
         </div>
