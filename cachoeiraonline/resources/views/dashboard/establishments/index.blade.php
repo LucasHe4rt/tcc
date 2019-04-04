@@ -15,7 +15,7 @@
                                 <th>#</th>
                                 <th>Nome</th>
                                 <th>Cnpj</th>
-                                <th>Tipo</th>
+                                <th>Categoria</th>
                                 <th>Usuário</th>
                                 <th>Criado em</th>
                                 <th>Atualizado em</th>

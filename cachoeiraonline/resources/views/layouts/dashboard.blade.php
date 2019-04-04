@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <link rel="stylesheet" href="{{asset('css/material-dashboard.css')}}">
     <link rel="stylesheet" href="{{asset('css/main.css')}}">
-
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 </head>
@@ -54,7 +53,7 @@
                 <li class="nav-item ">
                     <a class="nav-link" href="{{route('types.index')}}">
                         <i class="material-icons">location_ons</i>
-                        <p>Tipos de Estabelecimentos</p>
+                        <p>Categorias</p>
                     </a>
                 </li>
                 <li class="nav-item ">
@@ -140,6 +139,7 @@
 <script src="{{asset('js/core/bootstrap-material-design.min.js')}}"></script>
 <script src="{{asset('js/plugins/perfect-scrollbar.jquery.min.js')}}"></script>
 <script src="{{asset('js/material-dashboard.js')}}"></script>
+<script src="{{asset('js/main.js')}}"></script>
 {!! toastr()->render() !!}
 </body>
 </html>
