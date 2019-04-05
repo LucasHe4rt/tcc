@@ -41,7 +41,16 @@ class AdminsController extends Controller
 
         $admin = Admins::findOrFail($id);
 
-        return view('dashboard.admins.edit',['admin'=> $admin]);
+        $arr['id'] = $admin->id;
+        $arr['username'] = $admin->username;
+        $arr['password'] = $admin->password;
+        $arr['created_at'] = $admin->created_at;
+        $arr['updated_at'] = $admin->updated_at;
+
+
+        return  json_encode($arr);
+
+        //return view('dashboard.admins.edit',['admin'=> $admin]);
 
     }
 

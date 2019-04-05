@@ -6,7 +6,7 @@
                 <div class="card">
                     <div class="card-header card-header-info">
                         <h4 class="card-title ">Estabelecimentos</h4>
-                        <a href="javascript:void(0)" class="card-category" data-toggle="modal" data-target="#Modal">Clique aqui para adicionar um novo estabelecimento</a>
+                        <a href="javascript:void(0)" class="card-category" data-toggle="modal" data-target="#establishmentModal">Clique aqui para adicionar um novo estabelecimento</a>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -34,7 +34,7 @@
                                         <td>{{date_format($e->updated_at,"d/m/Y")}}</td>
                                         <td>
                                             <a style="color: #288c6c" href="javascript:void(0)"><i class="material-icons">add_photo_alternate</i></a>
-                                            <a style="color: #9095a2;" href="{{route('establishment.edit',['id' => $e->id])}}"><i class="material-icons">settings</i></a>
+                                            <a style="color: #9095a2;" onclick="establishmentEdit({{$e->id}})" href="javascript:void(0)" data-toggle="modal" data-target="#editEstablishmentModal"><i class="material-icons">settings</i></a>
                                             <a style="color: red" href="{{route('establishment.remove',['id' => $e->id])}}"><i class="material-icons">delete</i></a>
                                         </td>
                                     </tr>
@@ -49,7 +49,7 @@
     </div>
 
     <!-- Modal -->
-    <div  class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="establishmentModalLabel" aria-hidden="true">
+    <div  class="modal fade" id="establishmentModal" tabindex="-1" role="dialog" aria-labelledby="establishmentModalLabel" aria-hidden="true">
         <div class="modal-dialog " role="document">
             <div class="modal-content dark-edition">
                 <div style="background-color: #029eb1" class="modal-header">
@@ -94,6 +94,61 @@
                         <div class="form-group">
                             <label for="description" class="bmd-label-floating">Descrição</label>
                             <textarea class="form-control" name="description" id="description"></textarea>
+                        </div>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-info">Adicionar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div  class="modal fade" id="editEstablishmentModal" tabindex="-1" role="dialog" aria-labelledby="establishmentModalLabel" aria-hidden="true">
+        <div class="modal-dialog " role="document">
+            <div class="modal-content dark-edition">
+                <div style="background-color: #029eb1" class="modal-header">
+                    <h5 style="color: #ffffff" class="modal-title" id="editEstablishmentModalLabel"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span style="color: #ffffff" aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" name="establishmentForm" action="">
+                        @csrf
+                        <div class="form-group">
+                            <label for="users_id" class="bmd-label-floating">Usuário</label>
+                            <select id="editUsers_id" class="form-control" name="users_id">
+                                <option value="">Selecione um usuário</option>
+                                @foreach($users as $u)
+                                    <option value="{{$u->id}}">{{$u->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="name" class="bmd-label-floating">Nome</label>
+                            <input type="text" class="form-control" name="name" id="editName">
+                        </div>
+                        <div class="form-group">
+                            <label for="cnpj" class="bmd-label-floating">Cnpj</label>
+                            <input type="text" class="form-control" name="cnpj" id="editCnpj">
+                        </div>
+                        <div class="form-group">
+                            <label for="types_id" class="bmd-label-floating">Categoria</label>
+                            <select id="editTypes_id" class="form-control" name="types_id">
+                                <option value="">Selecione um tipo</option>
+                                @foreach($types as $t)
+                                    <option value="{{$t->id}}">{{$t->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="address" class="bmd-label-floating">Endereço</label>
+                            <input type="text" class="form-control" name="address" id="editAddress">
+                        </div>
+                        <div class="form-group">
+                            <label for="description" class="bmd-label-floating">Descrição</label>
+                            <textarea class="form-control" name="description" id="editDescription"></textarea>
                         </div>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                         <button type="submit" class="btn btn-info">Adicionar</button>
