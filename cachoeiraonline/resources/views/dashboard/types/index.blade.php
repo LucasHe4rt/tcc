@@ -1,6 +1,5 @@
 @extends('layouts.dashboard')
 @section('content')
-    <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -26,7 +25,7 @@
                                         <td>{{date_format($t->created_at,"d/m/Y")}}</td>
                                         <td>{{date_format($t->updated_at,"d/m/Y")}}</td>
                                         <td>
-                                            <a style="color: #9095a2;" href="{{route('types.edit',['id' => $t->id])}}"><i class="material-icons">settings</i></a>
+                                            <a style="color: #9095a2;" onclick="typeEdit({{$t->id}})" data-toggle="modal" data-target="#editTypeModal" href="javascript:void(0)"><i class="material-icons">settings</i></a>
                                             <a style="color: red" href="{{route('types.remove',['id' => $t->id])}}"><i class="material-icons">delete</i></a>
                                         </td>
                                     </tr>
@@ -38,7 +37,7 @@
                 </div>
             </div>
         </div>
-    </div>
+
     <!-- Modal -->
     <div  class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="establishmentModalLabel" aria-hidden="true">
         <div class="modal-dialog " role="document">
@@ -63,6 +62,31 @@
             </div>
         </div>
     </div>
+
+        <!-- Modal -->
+        <div  class="modal fade" id="editTypeModal" tabindex="-1" role="dialog" aria-labelledby="editTypeModalLabel" aria-hidden="true">
+            <div class="modal-dialog " role="document">
+                <div class="modal-content dark-edition">
+                    <div style="background-color: #029eb1" class="modal-header">
+                        <h5 style="color: #ffffff" class="modal-title" id="editTypeModalLabel"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span style="color: #ffffff" aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" name="editTypeForm" action="">
+                            @csrf
+                            <div class="form-group">
+                                <label for="name">Nome</label>
+                                <input type="text" class="form-control" name="name" id="editNameType">
+                            </div>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-info">Atualizar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
 @endsection
 
 

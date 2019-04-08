@@ -42,10 +42,15 @@ class PhonesEstabController extends Controller
 
     public function edit($id){
 
-        $estabs = Establishments::all(['id','name']);
         $phone = PhonesEstab::findOrFail($id);
 
-        return view('dashboard.phonesEstab.edit',['phone' => $phone,'estabs' => $estabs]);
+        $arr['id'] = $phone->id;
+        $arr['number'] = $phone->number;
+        $arr['establishments_id'] = $phone->establishments_id;
+        $arr['establishmentName'] = $phone->establishment->name;
+        return json_encode($arr);
+
+        //return view('dashboard.phonesEstab.edit',['phone' => $phone,'estabs' => $estabs]);
 
     }
 

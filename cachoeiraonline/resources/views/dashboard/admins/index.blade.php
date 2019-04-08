@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 @section('content')
-    <div class="container-fluid">
+
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -38,7 +38,6 @@
                 </div>
             </div>
         </div>
-    </div>
     <!-- Modal -->
     <div  class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="establishmentModalLabel" aria-hidden="true">
         <div class="modal-dialog " role="document">

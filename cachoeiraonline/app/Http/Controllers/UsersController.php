@@ -61,7 +61,22 @@ class UsersController extends Controller
 
         $user = User::findOrFail($id);
 
-        return view('dashboard.users.edit',['user'=> $user]);
+        $arr = array(
+
+            'id' => $user->id,
+            'name' => $user->name,
+            'email' => $user->email,
+            'cpf' => $user->cpf,
+            'profile_photo' => $user->profile_photo,
+            'password' => $user->password,
+            'created_at'=> $user->created_at,
+            'updated_at' => $user->updated_at
+
+        );
+
+        return json_encode($arr);
+
+//        return view('dashboard.users.edit',['user'=> $user]);
 
     }
 

@@ -43,7 +43,19 @@ class PhonesUsersController extends Controller
         $users = User::all(['id','name']);
         $phone = PhonesUsers::findOrFail($id);
 
-        return view('dashboard.phonesUsers.edit',['phone' => $phone,'users' => $users]);
+        $arr = array(
+
+            'id' => $phone->id,
+            'number' => $phone->number,
+            'users_id' => $phone->users_id,
+            'name' => $phone->user->name,
+            'created_at' => $phone->created_at,
+            'updated_at' => $phone->updated_at
+
+        );
+
+        return json_encode($arr);
+//        return view('dashboard.phonesUsers.edit',['phone' => $phone,'users' => $users]);
 
     }
 

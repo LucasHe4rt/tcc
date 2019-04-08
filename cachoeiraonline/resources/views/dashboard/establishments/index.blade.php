@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 @section('content')
-    <div class="container-fluid">
+
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -46,7 +46,7 @@
                 </div>
             </div>
         </div>
-    </div>
+
 
     <!-- Modal -->
     <div  class="modal fade" id="establishmentModal" tabindex="-1" role="dialog" aria-labelledby="establishmentModalLabel" aria-hidden="true">
@@ -117,7 +117,7 @@
                     <form method="post" name="establishmentForm" action="">
                         @csrf
                         <div class="form-group">
-                            <label for="users_id" class="bmd-label-floating">Usuário</label>
+                            <label for="users_id">Usuário</label>
                             <select id="editUsers_id" class="form-control" name="users_id">
                                 <option value="">Selecione um usuário</option>
                                 @foreach($users as $u)
@@ -126,15 +126,15 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="name" class="bmd-label-floating">Nome</label>
+                            <label for="name" >Nome</label>
                             <input type="text" class="form-control" name="name" id="editName">
                         </div>
                         <div class="form-group">
-                            <label for="cnpj" class="bmd-label-floating">Cnpj</label>
+                            <label for="cnpj" >Cnpj</label>
                             <input type="text" class="form-control" name="cnpj" id="editCnpj">
                         </div>
                         <div class="form-group">
-                            <label for="types_id" class="bmd-label-floating">Categoria</label>
+                            <label for="types_id">Categoria</label>
                             <select id="editTypes_id" class="form-control" name="types_id">
                                 <option value="">Selecione um tipo</option>
                                 @foreach($types as $t)
@@ -143,11 +143,11 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="address" class="bmd-label-floating">Endereço</label>
+                            <label for="address" >Endereço</label>
                             <input type="text" class="form-control" name="address" id="editAddress">
                         </div>
                         <div class="form-group">
-                            <label for="description" class="bmd-label-floating">Descrição</label>
+                            <label for="description" >Descrição</label>
                             <textarea class="form-control" name="description" id="editDescription"></textarea>
                         </div>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>

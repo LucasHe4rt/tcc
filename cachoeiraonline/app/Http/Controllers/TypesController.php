@@ -39,7 +39,17 @@ class TypesController extends Controller
 
         $type = Types::findOrFail($id);
 
-        return view('dashboard.types.edit',['type' => $type]);
+        $arr = array(
+
+            'id' => $type->id,
+            'name' => $type->name,
+            'created_at' => $type->created_at,
+            'updated_at' => $type->updated_at
+
+        );
+
+        return json_encode($arr);
+//        return view('dashboard.types.edit',['type' => $type]);
 
     }
 
