@@ -62,6 +62,12 @@
                         <p>Administradores</p>
                     </a>
                 </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="{{route('admin.index')}}">
+                        <i class="material-icons">star</i>
+                        <p>Avaliações</p>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

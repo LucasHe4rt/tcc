@@ -85,6 +85,17 @@ Route::prefix('dashboard')->group(function (){
 
     });
 
+    Route::prefix('ratings')->group(function (){
+
+        Route::get('','RatingsController@index')->name('ratings.index');
+        Route::get('/store','RatingsController@store')->name('ratings.store');
+        Route::post('/new','RatingsController@new')->name('ratings.new');
+        Route::get('/edit/{id}','RatingsController@edit')->name('ratings.edit');
+        Route::post('/update/{id}','RatingsController@update')->name('ratings.update');
+        Route::get('/remove/{id}','RatingsController@remove')->name('ratings.remove');
+
+    });
+
 });
 
 
