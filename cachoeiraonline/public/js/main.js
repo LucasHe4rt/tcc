@@ -117,3 +117,22 @@ function typeEdit(id) {
 
 }
 
+function ratingEdit(id) {
+
+    fetch(`/dashboard/ratings/edit/${id}`).then(function (response) {
+
+        response.json().then(function (data) {
+
+            console.log(data);
+
+           // $("#editNameType").val(data.name);
+
+            document.getElementById("ratingModalLabel").innerText = `Editar avaliação de ${data.user_name}`;
+            document.editRatingForm.action = `/dashboard/rating/update/${id}`;
+
+        })
+
+    })
+
+}
+

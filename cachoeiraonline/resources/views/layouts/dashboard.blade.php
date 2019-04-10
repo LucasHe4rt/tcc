@@ -63,7 +63,7 @@
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="{{route('admin.index')}}">
+                    <a class="nav-link" href="{{route('ratings.index')}}">
                         <i class="material-icons">star</i>
                         <p>Avaliações</p>
                     </a>

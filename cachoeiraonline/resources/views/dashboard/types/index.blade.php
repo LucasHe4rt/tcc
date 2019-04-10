@@ -5,7 +5,7 @@
                 <div class="card">
                     <div class="card-header card-header-info">
                         <h4 class="card-title ">Categorias</h4>
-                        <a href="javascript:void(0)" class="card-category" data-toggle="modal" data-target="#Modal">Clique aqui para adicionar um novo tipo de estabelecimento.</a>
+                        <a href="javascript:void(0)" class="card-category" data-toggle="modal" data-target="#Modal">Clique aqui para adicionar uma nova categoria.</a>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
