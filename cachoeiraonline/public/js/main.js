@@ -4,7 +4,6 @@ $(document).ready(function () {
 
 });
 
-
 function adminEdit(id) {
 
         fetch(`/dashboard/admin/edit/${id}`).then(function (response) {
@@ -123,12 +122,43 @@ function ratingEdit(id) {
 
         response.json().then(function (data) {
 
-            console.log(data);
+            // console.log(data);
 
-           // $("#editNameType").val(data.name);
+            $(`#editUsers_id option[value=${data.users_id}]` ).attr('selected','selected');
+            $(`#editEstablishments_id option[value=${data.establishments_id}]` ).attr('selected','selected');
+
+           $("#editDescription").val(data.description);
+
+           const estrela5 = $("#editStar5");
+           const estrela4 = $("#editStar4");
+           const estrela3 = $("#editStar3");
+           const estrela2 = $("#editStar2");
+           const estrela1 = $("#editStar1");
+
+           if(estrela5.val() == data.ratings){
+
+               estrela5.attr('checked','checked');
+
+           }else if (estrela4.val() == data.ratings){
+
+               estrela4.attr('checked','checked');
+
+           }else if(estrela3.val() == data.ratings){
+
+               estrela3.attr('checked','checked');
+
+           }else if(estrela2.val() == data.ratigs){
+
+               estrela2.attr('checked','checked');
+
+           }else{
+
+               estrela1.attr('checked','checked')
+
+           }
 
             document.getElementById("ratingModalLabel").innerText = `Editar avaliação de ${data.user_name}`;
-            document.editRatingForm.action = `/dashboard/rating/update/${id}`;
+            document.editRatingForm.action = `/dashboard/ratings/update/${id}`;
 
         })
 
