@@ -91,8 +91,8 @@
                     <form method="post" name="editPhoneEstabForm" action="">
                         @csrf
                         <div class="form-group">
-                            <label for="establishments_id" class="bmd-label-floating">Estabelecimento</label>
-                            <select id="establishments_id" class="form-control" name="establishments_id">
+                            <label for="editEstablishments_id" class="bmd-label-floating">Estabelecimento</label>
+                            <select id="editEstablishments_id" class="form-control" name="establishments_id">
                                 <option value="">Selecione um estabelecimento</option>
                                 @foreach($estabs as $e)
                                     <option value="{{$e->id}}">{{$e->name}}</option>

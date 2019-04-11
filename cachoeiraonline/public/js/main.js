@@ -28,8 +28,10 @@ function establishmentEdit(id) {
 
         response.json().then(function (data) {
 
-            //console.log(data);
+            console.log(data);
 
+            $(`#editUsers_id option[value=${data.users_id}]` ).attr('selected','selected');
+            $(`#editTypes_id option[value=${data.types_id}]` ).attr('selected','selected');
             $("#editName").val(data.name);
             $("#editCnpj").val(data.cnpj);
             $("#editAddress").val(data.address);
@@ -52,6 +54,7 @@ function phoneEstabEdit(id) {
 
         response.json().then(function (data) {
 
+            $(`#editEstablishments_id option[value=${data.establishments_id}]` ).attr('selected','selected');
             $("#editNumber").val(data.number);
 
             document.getElementById("editPhonesEstabModalLabel").innerText = `Editar telefone de  ${data.establishmentName}`;
@@ -88,6 +91,7 @@ function phoneUserEdit(id) {
 
         response.json().then(function (data) {
 
+            $(`#editUsers_id option[value=${data.users_id}]` ).attr('selected','selected');
             $("#editNumberUser").val(data.number);
 
             document.getElementById("editphoneUserModalLabel").innerText = `Editar telefone de ${data.name}`;
