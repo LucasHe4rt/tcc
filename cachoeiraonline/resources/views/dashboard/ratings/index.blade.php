@@ -202,12 +202,12 @@
                                 </label>
                             </div>
                             <div class="form-group">
-                                <label for="description">Descrição</label>
-                                <textarea name="description" class="form-control" id="description" rows="3"></textarea>
+                                <label for="editDescription">Descrição</label>
+                                <textarea name="description" class="form-control" id="editDescription" rows="3"></textarea>
                             </div>
                         </div>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-info">Adicionar</button>
+                        <button type="submit" class="btn btn-info">Atualizar</button>
                     </form>
                 </div>
             </div>
