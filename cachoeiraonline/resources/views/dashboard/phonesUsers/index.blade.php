@@ -54,8 +54,8 @@
                     <form method="post" action="{{route('phoneUsers.new')}}">
                         @csrf
                         <div class="form-group">
-                            <label for="users_id" class="bmd-label-floating">Usuário</label>
-                            <select id="users_id" class="form-control" name="users_id">
+                            <label for="user_id" class="bmd-label-floating">Usuário</label>
+                            <select id="user_id" class="form-control" name="user_id">
                                 <option value="">Selecione um usuário</option>
                                 @foreach($users as $u)
                                     <option value="{{$u->id}}">{{$u->name}}</option>
@@ -88,8 +88,8 @@
                         <form method="post" name="editPhoneUsersForm" action="">
                             @csrf
                             <div class="form-group">
-                                <label for="editUsers_id" class="bmd-label-floating">Usuário</label>
-                                <select id="editUsers_id" class="form-control" name="users_id">
+                                <label for="editUser_id" class="bmd-label-floating">Usuário</label>
+                                <select id="editUser_id" class="form-control" name="user_id">
                                     <option value="">Selecione um usuário</option>
                                     @foreach($users as $u)
                                         <option value="{{$u->id}}">{{$u->name}}</option>

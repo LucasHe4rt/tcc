@@ -9,19 +9,19 @@ class Establishments extends Model
 
     protected $fillable = [
 
-        'name', 'cnpj', 'address', 'description', 'users_id','types_id'
+        'name', 'cnpj', 'address', 'description', 'user_id','type_id'
 
     ];
 
     public function user(){
 
-        return $this->belongsTo(User::class,'users_id');
+        return $this->belongsTo(User::class);
 
     }
 
     public function type(){
 
-        return $this->belongsTo(Types::class,'types_id');
+        return $this->belongsTo(Types::class);
 
     }
 
@@ -29,6 +29,11 @@ class Establishments extends Model
 
         return $this->hasMany(Establishments::class);
 
+    }
+
+    public function photos(){
+
+        return $this->hasMany(EstablishmentPhotos::class);
     }
 
 }

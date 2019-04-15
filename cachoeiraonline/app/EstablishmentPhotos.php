@@ -4,24 +4,20 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Ratings extends Model
+class EstablishmentPhotos extends Model
 {
+
+    protected $table = 'establishment_photos';
 
     protected $fillable = [
 
-        'ratings', 'description','establishment_id', 'user_id'
+        'photo', 'establishment_id'
 
-    ];
+        ];
 
     public function establishment(){
 
         return $this->belongsTo(Establishments::class);
-
-    }
-
-    public function user(){
-
-        return $this->belongsTo(User::class);
 
     }
 

@@ -14,14 +14,15 @@ class CreateRatingsTable extends Migration
     public function up()
     {
         Schema::create('ratings', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->integer('ratings');
             $table->text('description');
-            $table->integer('users_id')->unsigned();
-            $table->integer('establishments_id')->unsigned();
-            $table->foreign('users_id')->references('id')->on('users');
-            $table->foreign('establishments_id')->references('id')->on('establishments');
+            $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('establishment_id')->unsigned();
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('establishment_id')->references('id')->on('establishments');
         });
     }
 

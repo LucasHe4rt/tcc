@@ -33,7 +33,7 @@
                                         <td>{{date_format($e->created_at,"d/m/Y")}}</td>
                                         <td>{{date_format($e->updated_at,"d/m/Y")}}</td>
                                         <td>
-                                            <a style="color: #288c6c" href="javascript:void(0)"><i class="material-icons">add_photo_alternate</i></a>
+                                            <a style="color: #288c6c" onclick="addPhoto({{$e->id}})" data-toggle="modal" data-target="#establishmentPhotosModal" href="javascript:void(0)"><i class="material-icons">add_photo_alternate</i></a>
                                             <a style="color: #9095a2;" onclick="establishmentEdit({{$e->id}})" href="javascript:void(0)" data-toggle="modal" data-target="#editEstablishmentModal"><i class="material-icons">settings</i></a>
                                             <a style="color: red" href="{{route('establishment.remove',['id' => $e->id])}}"><i class="material-icons">delete</i></a>
                                         </td>
@@ -62,8 +62,8 @@
                     <form method="post" action="{{route('establishment.new')}}">
                         @csrf
                         <div class="form-group">
-                            <label for="users_id" class="bmd-label-floating">Usuário</label>
-                            <select id="users_id" class="form-control" name="users_id">
+                            <label for="user_id" class="bmd-label-floating">Usuário</label>
+                            <select id="user_id" class="form-control" name="user_id">
                                 <option value="">Selecione um usuário</option>
                                 @foreach($users as $u)
                                     <option value="{{$u->id}}">{{$u->name}}</option>
@@ -79,8 +79,8 @@
                             <input type="text" class="form-control" name="cnpj" id="cnpj">
                         </div>
                         <div class="form-group">
-                            <label for="types_id" class="bmd-label-floating">Categoria</label>
-                            <select id="types_id" class="form-control" name="types_id">
+                            <label for="type_id" class="bmd-label-floating">Categoria</label>
+                            <select id="type_id" class="form-control" name="type_id">
                                 <option value="">Selecione um tipo</option>
                                 @foreach($types as $t)
                                     <option value="{{$t->id}}">{{$t->name}}</option>
@@ -117,8 +117,8 @@
                     <form method="post" name="establishmentForm" action="">
                         @csrf
                         <div class="form-group">
-                            <label for="editUsers_id">Usuário</label>
-                            <select id="editUsers_id" class="form-control" name="users_id">
+                            <label for="editUser_id">Usuário</label>
+                            <select id="editUser_id" class="form-control" name="user_id">
                                 <option value="">Selecione um usuário</option>
                                 @foreach($users as $u)
                                     <option value="{{$u->id}}">{{$u->name}}</option>
@@ -134,8 +134,8 @@
                             <input type="text" class="form-control" name="cnpj" id="editCnpj">
                         </div>
                         <div class="form-group">
-                            <label for="editTypes_id">Categoria</label>
-                            <select id="editTypes_id" class="form-control" name="types_id">
+                            <label for="editType_id">Categoria</label>
+                            <select id="editType_id" class="form-control" name="type_id">
                                 <option value="">Selecione um tipo</option>
                                 @foreach($types as $t)
                                     <option value="{{$t->id}}">{{$t->name}}</option>
@@ -157,4 +157,29 @@
             </div>
         </div>
     </div>
+
+        <!-- Modal -->
+        <div  class="modal fade" id="establishmentPhotosModal" tabindex="-1" role="dialog" aria-labelledby="establishmentPhotosModalLabel" aria-hidden="true">
+            <div class="modal-dialog " role="document">
+                <div class="modal-content dark-edition">
+                    <div style="background-color: #029eb1" class="modal-header">
+                        <h5 style="color: #ffffff" class="modal-title" id="establishmentPhotosModalLabel">Adicionar Fotos</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span style="color: #ffffff" aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" name="addPhotoForm" action="" enctype="multipart/form-data">
+                            @csrf
+                            <div class="form-group">
+                                <label for="photos" class="bmd-label-floating">Adicionar fotos</label>
+                                <input type="file"  name="photos[]" id="photos" multiple>
+                            </div>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-info">Adicionar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
 @endsection

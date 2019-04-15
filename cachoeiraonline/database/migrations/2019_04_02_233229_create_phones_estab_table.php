@@ -14,11 +14,12 @@ class CreatePhonesEstabTable extends Migration
     public function up()
     {
         Schema::create('phones_estab', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->string('number');
-            $table->integer('establishments_id')->unsigned();
-            $table->foreign('establishments_id')->references('id')->on('establishments');
+            $table->bigInteger('establishment_id')->unsigned();
             $table->timestamps();
+
+            $table->foreign('establishment_id')->references('id')->on('establishments');
         });
     }
 

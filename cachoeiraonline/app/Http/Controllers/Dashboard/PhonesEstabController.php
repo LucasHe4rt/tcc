@@ -47,11 +47,10 @@ class PhonesEstabController extends Controller
 
         $arr['id'] = $phone->id;
         $arr['number'] = $phone->number;
-        $arr['establishments_id'] = $phone->establishments_id;
+        $arr['establishment_id'] = $phone->establishment_id;
         $arr['establishmentName'] = $phone->establishment->name;
-        return json_encode($arr);
 
-        //return view('dashboard.phonesEstab.edit',['phone' => $phone,'estabs' => $estabs]);
+        return json_encode($arr);
 
     }
 

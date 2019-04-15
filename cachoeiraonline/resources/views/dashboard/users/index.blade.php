@@ -26,7 +26,7 @@
                                         <td>{{$u->id}}</td>
                                         <td>
                                             @if(isset($u->profile_photo))
-                                                <img style="max-height: 150px;max-width: 200px" src="{{asset($u->profile_photo)}}">
+                                                <img style="max-height: 150px;max-width: 200px" src="{{asset('img'.DIRECTORY_SEPARATOR.'usersProfile'.DIRECTORY_SEPARATOR.$u->profile_photo)}}">
                                             @else
                                                 Sem foto
                                             @endif

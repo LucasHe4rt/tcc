@@ -56,8 +56,8 @@
                     <form method="post" action="{{route('ratings.new')}}">
                         @csrf
                         <div class="form-group">
-                            <label for="users_id">Usuário</label>
-                            <select name="users_id" class="form-control" id="users_id">
+                            <label for="user_id">Usuário</label>
+                            <select name="user_id" class="form-control" id="user_id">
                                 <option value="">Selecione um usuário...</option>
                                 @foreach($users as $u)
                                     <option value="{{$u->id}}">{{$u->name}}</option>
@@ -65,8 +65,8 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="establishments_id">Estabelecimento</label>
-                            <select name="establishments_id" class="form-control" id="establishments_id">
+                            <label for="establishment_id">Estabelecimento</label>
+                            <select name="establishment_id" class="form-control" id="establishment_id">
                                 <option value="">Selecione um estabelecimento...</option>
                                 @foreach($establishments as $e)
                                     <option value="{{$e->id}}">{{$e->name}}</option>
@@ -142,8 +142,8 @@
                     <form method="post" name="editRatingForm" action="">
                         @csrf
                         <div class="form-group">
-                            <label for="users_id">Usuário</label>
-                            <select name="users_id" class="form-control" id="editUsers_id">
+                            <label for="user_id">Usuário</label>
+                            <select name="user_id" class="form-control" id="editUser_id">
                                 <option value="">Selecione um usuário...</option>
                                 @foreach($users as $u)
                                     <option value="{{$u->id}}">{{$u->name}}</option>
@@ -151,8 +151,8 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="establishments_id">Estabelecimento</label>
-                            <select name="establishments_id" class="form-control" id="editEstablishments_id">
+                            <label for="establishment_id">Estabelecimento</label>
+                            <select name="establishment_id" class="form-control" id="editEstablishment_id">
                                 <option value="">Selecione um estabelecimento...</option>
                                 @foreach($establishments as $e)
                                     <option value="{{$e->id}}">{{$e->name}}</option>
@@ -203,11 +203,7 @@
                                 </label>
                             </div>
                             <div class="form-group">
-<<<<<<< HEAD
                                 <label for="editDescription">Descrição</label>
-=======
-                                <label for="description">Descrição</label>
->>>>>>> 66b030dd9c31de8d515421ff82b27f5eb0485907
                                 <textarea name="description" class="form-control" id="editDescription" rows="3"></textarea>
                             </div>
                         </div>

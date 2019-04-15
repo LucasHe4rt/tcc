@@ -41,14 +41,14 @@ class PhonesUsersController extends Controller
     }
 
     public function edit($id){
-        $users = User::all(['id','name']);
+
         $phone = PhonesUsers::findOrFail($id);
 
         $arr = array(
 
             'id' => $phone->id,
             'number' => $phone->number,
-            'users_id' => $phone->users_id,
+            'user_id' => $phone->user_id,
             'name' => $phone->user->name,
             'created_at' => $phone->created_at,
             'updated_at' => $phone->updated_at
@@ -56,7 +56,6 @@ class PhonesUsersController extends Controller
         );
 
         return json_encode($arr);
-//        return view('dashboard.phonesUsers.edit',['phone' => $phone,'users' => $users]);
 
     }
 

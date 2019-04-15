@@ -56,17 +56,10 @@ class EstablishmentsController extends Controller
         $arr['cnpj'] = $estab->cnpj;
         $arr['address'] = $estab->address;
         $arr['description'] = $estab->description;
-        $arr['types_id'] = $estab->types_id;
-        $arr['users_id'] = $estab->users_id;
-
-        $user = User::all(['id','name']);
-        $types = Types::all(['id','name']);
+        $arr['type_id'] = $estab->type_id;
+        $arr['user_id'] = $estab->user_id;
 
         return json_encode($arr);
-
-
-
-       // return view('dashboard.establishments.edit',['estab' => $estab,'user' => $user,'types' => $types]);
 
     }
 

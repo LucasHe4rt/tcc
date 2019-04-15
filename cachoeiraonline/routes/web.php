@@ -52,6 +52,9 @@ Route::namespace('Dashboard')->group(function (){
             Route::post('/update/{id}','EstablishmentsController@update')->name('establishment.update');
             Route::get('/remove/{id}','EstablishmentsController@remove')->name('establishment.remove');
 
+            Route::get('/photos/{id}', 'EstablishmentPhotoController@index')->name('establishment.photo');
+            Route::post('/photos/{id}', 'EstablishmentPhotoController@upload')->name('establishment.photo.upload');
+
         });
 
         Route::prefix('phoneEstab')->group(function (){

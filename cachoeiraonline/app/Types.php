@@ -9,13 +9,13 @@ class Types extends Model
 
     protected $fillable = [
 
-        'name','establishments_id'
+        'name','establishment_id'
 
     ];
 
     public function establishment(){
 
-        return $this->hasOne(Establishments::class,'establishments_id');
+        return $this->hasOne(Establishments::class);
 
     }
 

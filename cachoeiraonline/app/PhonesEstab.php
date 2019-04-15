@@ -11,13 +11,13 @@ class PhonesEstab extends Model
 
     protected $fillable = [
 
-        'number','establishments_id'
+        'number','establishment_id'
 
         ];
 
     public function establishment(){
 
-        return $this->belongsTo(Establishments::class,'establishments_id');
+        return $this->belongsTo(Establishments::class);
 
     }
 

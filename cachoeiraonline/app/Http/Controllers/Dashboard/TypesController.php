@@ -50,7 +50,6 @@ class TypesController extends Controller
         );
 
         return json_encode($arr);
-//        return view('dashboard.types.edit',['type' => $type]);
 
     }
 

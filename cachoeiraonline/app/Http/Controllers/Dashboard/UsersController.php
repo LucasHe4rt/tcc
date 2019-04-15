@@ -41,7 +41,7 @@ class UsersController extends Controller
             $newName = sha1($photo->getClientOriginalName()) . uniqid() . '.' . $photo->getClientOriginalExtension();
             $photo->move(public_path('img'.DIRECTORY_SEPARATOR.'usersProfile'),$newName);
 
-            $user->profile_photo = 'img'.DIRECTORY_SEPARATOR.'usersProfile'.DIRECTORY_SEPARATOR.$newName;
+            $user->profile_photo = $newName;
 
             $user->save();
 
