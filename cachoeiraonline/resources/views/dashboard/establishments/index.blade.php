@@ -117,7 +117,7 @@
                     <form method="post" name="establishmentForm" action="">
                         @csrf
                         <div class="form-group">
-                            <label for="users_id">Usuário</label>
+                            <label for="editUsers_id">Usuário</label>
                             <select id="editUsers_id" class="form-control" name="users_id">
                                 <option value="">Selecione um usuário</option>
                                 @foreach($users as $u)
@@ -134,7 +134,7 @@
                             <input type="text" class="form-control" name="cnpj" id="editCnpj">
                         </div>
                         <div class="form-group">
-                            <label for="types_id">Categoria</label>
+                            <label for="editTypes_id">Categoria</label>
                             <select id="editTypes_id" class="form-control" name="types_id">
                                 <option value="">Selecione um tipo</option>
                                 @foreach($types as $t)
@@ -151,7 +151,7 @@
                             <textarea class="form-control" name="description" id="editDescription"></textarea>
                         </div>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-info">Adicionar</button>
+                        <button type="submit" class="btn btn-info">Atualizar</button>
                     </form>
                 </div>
             </div>

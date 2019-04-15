@@ -67,6 +67,8 @@ class RatingsController extends Controller
 
         toastr()->success('Avaliação atualizada com sucesso!');
 
+        return redirect()->back();
+
     }
 
     public function remove($id){

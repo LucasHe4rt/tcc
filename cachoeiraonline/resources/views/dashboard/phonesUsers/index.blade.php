@@ -88,8 +88,8 @@
                         <form method="post" name="editPhoneUsersForm" action="">
                             @csrf
                             <div class="form-group">
-                                <label for="users_id" class="bmd-label-floating">Usuário</label>
-                                <select id="users_id" class="form-control" name="users_id">
+                                <label for="editUsers_id" class="bmd-label-floating">Usuário</label>
+                                <select id="editUsers_id" class="form-control" name="users_id">
                                     <option value="">Selecione um usuário</option>
                                     @foreach($users as $u)
                                         <option value="{{$u->id}}">{{$u->name}}</option>

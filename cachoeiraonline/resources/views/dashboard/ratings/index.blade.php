@@ -143,7 +143,7 @@
                         @csrf
                         <div class="form-group">
                             <label for="users_id">Usuário</label>
-                            <select name="users_id" class="form-control" id="users_id">
+                            <select name="users_id" class="form-control" id="editUsers_id">
                                 <option value="">Selecione um usuário...</option>
                                 @foreach($users as $u)
                                     <option value="{{$u->id}}">{{$u->name}}</option>
@@ -152,7 +152,7 @@
                         </div>
                         <div class="form-group">
                             <label for="establishments_id">Estabelecimento</label>
-                            <select name="establishments_id" class="form-control" id="establishments_id">
+                            <select name="establishments_id" class="form-control" id="editEstablishments_id">
                                 <option value="">Selecione um estabelecimento...</option>
                                 @foreach($establishments as $e)
                                     <option value="{{$e->id}}">{{$e->name}}</option>
@@ -163,7 +163,7 @@
                             <label>Avaliação</label><br>
                             <div class="form-check form-check-radio form-check-inline">
                                 <label class="form-check-label">
-                                    <input class="form-check-input" type="radio" name="ratings" id="star1" value="1"> 1
+                                    <input class="form-check-input" type="radio" name="ratings" id="editStar1" value="1"> 1
                                     <span class="circle">
                                         <span class="check"></span>
                                     </span>
@@ -171,7 +171,7 @@
                             </div>
                             <div class="form-check form-check-radio form-check-inline">
                                 <label class="form-check-label">
-                                    <input class="form-check-input" type="radio" name="ratings" id="star2" value="2"> 2
+                                    <input class="form-check-input" type="radio" name="ratings" id="editStar2" value="2"> 2
                                     <span class="circle">
                                         <span class="check"></span>
                                     </span>
@@ -179,7 +179,16 @@
                             </div>
                             <div class="form-check form-check-radio form-check-inline disabled">
                                 <label class="form-check-label">
-                                    <input class="form-check-input" type="radio" name="ratings" id="star3" value="3"> 3
+                                    <input class="form-check-input" type="radio" name="ratings" id="editStar3" value="3"> 3
+                                    <span class="circle">
+                                        <span class="check"></span>
+                                    </span>
+                                </label>
+                            </div>
+                            <div class="form-check form-check-radio form-check-inline disabled">
+
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="radio" name="ratings" id="editStar4" value="4"> 4
                                     <span class="circle">
                                         <span class="check"></span>
                                     </span>
@@ -187,22 +196,18 @@
                             </div>
                             <div class="form-check form-check-radio form-check-inline disabled">
                                 <label class="form-check-label">
-                                    <input class="form-check-input" type="radio" name="ratings" id="star4" value="4"> 4
-                                    <span class="circle">
-                                        <span class="check"></span>
-                                    </span>
-                                </label>
-                            </div>
-                            <div class="form-check form-check-radio form-check-inline disabled">
-                                <label class="form-check-label">
-                                    <input class="form-check-input" type="radio" name="ratings" id="star5" value="5"> 5
+                                    <input class="form-check-input" type="radio" name="ratings" id="editStar5" value="5"> 5
                                     <span class="circle">
                                         <span class="check"></span>
                                     </span>
                                 </label>
                             </div>
                             <div class="form-group">
+<<<<<<< HEAD
                                 <label for="editDescription">Descrição</label>
+=======
+                                <label for="description">Descrição</label>
+>>>>>>> 66b030dd9c31de8d515421ff82b27f5eb0485907
                                 <textarea name="description" class="form-control" id="editDescription" rows="3"></textarea>
                             </div>
                         </div>
