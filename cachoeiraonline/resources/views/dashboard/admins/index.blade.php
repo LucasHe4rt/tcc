@@ -43,7 +43,7 @@
         <div class="modal-dialog " role="document">
             <div class="modal-content dark-edition">
                 <div style="background-color: #029eb1" class="modal-header">
-                    <h5 style="color: #ffffff" class="modal-title" id="establishmentModalLabel">Novo telefone de estabelecimento</h5>
+                    <h5 style="color: #ffffff" class="modal-title" id="establishmentModalLabel">Novo Administrador</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span style="color: #ffffff" aria-hidden="true">&times;</span>
                     </button>

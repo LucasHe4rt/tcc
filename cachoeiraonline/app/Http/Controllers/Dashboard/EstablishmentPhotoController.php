@@ -15,13 +15,25 @@ class EstablishmentPhotoController extends Controller
 
         return json_encode($arr);
 
-//        return view('dashboard.establishments.photos.index',['establishment_id' => $establishement_id]);
+
 
     }
 
     public function upload(Request $request,$id){
 
-        dd($request->file('photos'));
+       foreach ($request->file('photos') as $photo){
+
+          $newName =  sha1($photo->getClientOriginalName()) . uniqid(). ".".$photo->getClientOriginalExtension();
+
+          $photo->move(public_path('img'.DIRECTORY_SEPARATOR.'establishmentPhotos'),$newName);
+
+          $establishment = Establishments::findOrFail($id);
+          $establishment->photos()->create([
+              'photo' => $newName,
+              'establishment_id' => $establishment->id
+          ]);
+
+       }
 
     }
 

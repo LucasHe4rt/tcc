@@ -11,7 +11,7 @@ class EstablishmentPhotos extends Model
 
     protected $fillable = [
 
-        'photo', 'establishment_id'
+        'photo', 'establishments_id'
 
         ];
 
