@@ -14,7 +14,7 @@
 <div class="wrapper">
     <div class="sidebar" data-color="azure" data-background-color="black" data-image="{{asset('img/sidebar-2.jpg')}}">
         <div class="logo">
-            <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+            <a href="{{route('dashboard.index')}}" class="simple-text logo-normal">
                 Cachoeira Online
             </a>
         </div>

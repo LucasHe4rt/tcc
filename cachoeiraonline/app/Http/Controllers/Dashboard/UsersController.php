@@ -2,9 +2,15 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\EstablishmentPhotos;
+use App\Establishments;
 use App\Http\Controllers\Controller;
+use App\PhonesEstab;
+use App\PhonesUsers;
+use App\Ratings;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UsersController extends Controller
 {
@@ -126,6 +132,72 @@ class UsersController extends Controller
     public function remove($id){
 
         $user = User::findOrFail($id);
+
+        $rating = DB::table('ratings')
+                    ->select('*')
+                    ->where('user_id','=',$id)
+                    ->get();
+
+        $phoneUser = DB::table('phones_users')
+                        ->select('*')
+                        ->where('user_id','=', $id)
+                        ->get();
+
+        $establishment = DB::table('establishments')
+                            ->select('*')
+                            ->where('user_id','=',$id)
+                            ->get();
+
+        foreach ($rating as $r){
+
+            $id = $r->id;
+
+            $rate = Ratings::findOrFail($id);
+            $rate->delete();
+
+        }
+
+        foreach ($phoneUser as $p){
+
+            $id = $p->id;
+
+            $phone = PhonesUsers::findOrFail($id);
+            $phone->delete();
+
+        }
+
+        foreach ($establishment as $e){
+
+            $id = $e->id;
+
+            $phoneEstab = DB::table('phones_estab')
+                            ->select('*')
+                            ->where('establishment_id','=',$id)
+                            ->get();
+
+            foreach ($phoneEstab as $p){
+
+                $phone = PhonesEstab::findOrFail($p->id);
+                $phone->delete();
+
+            }
+
+            $photos = DB::table('photos')
+                        ->select('*')
+                        ->where('establishment_id','=',$id)
+                        ->get();
+
+            foreach ($photos as $p){
+
+                    $photo = EstablishmentPhotos::findOrFail($p->id);
+                    $photo->delete();
+
+            }
+
+            $estab = Establishments::findOrFail($id);
+            $estab->delete();
+
+        }
 
         $user->delete();
 
