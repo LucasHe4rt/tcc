@@ -36,4 +36,10 @@ class Establishments extends Model
         return $this->hasMany(EstablishmentPhotos::class);
     }
 
+    public function phones(){
+
+        return $this->hasMany(PhonesEstab::class);
+
+    }
+
 }

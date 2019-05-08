@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\EstablishmentPhotos;
 use App\Establishments;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -34,6 +35,31 @@ class EstablishmentPhotoController extends Controller
           ]);
 
        }
+
+       toastr()->success('Fotos adicionadas!');
+
+       return redirect()->back();
+
+    }
+
+    public function view($id){
+
+        $estab = Establishments::findOrFail($id);
+
+        $photos = $estab->photos;
+
+        return view('dashboard.establishments.photos.index',['photos' => $photos, 'estab' => $estab]);
+
+    }
+
+    public function remove($id){
+
+        $photo = EstablishmentPhotos::findOrFail($id);
+        $photo->delete();
+
+        toastr()->success('Foto deletada!');
+
+        return redirect()->back();
 
     }
 

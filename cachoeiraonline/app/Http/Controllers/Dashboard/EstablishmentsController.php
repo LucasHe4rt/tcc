@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\EstablishmentPhotos;
 use App\Http\Controllers\Controller;
 use App\Establishments;
+use App\PhonesEstab;
+use App\Ratings;
 use App\Types;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class EstablishmentsController extends Controller
 {
@@ -79,6 +83,43 @@ class EstablishmentsController extends Controller
     public function remove($id){
 
         $estab = Establishments::findOrFail($id);
+
+        $rating = DB::table('ratings')
+            ->select('*')
+            ->where('establishment_id','=',$id)
+            ->get();
+
+        $photos = DB::table('establishment_photos')
+            ->select('*')
+            ->where('establishments_id','=',$id)
+            ->get();
+
+        $phones = DB::table('phones_estab')
+            ->select('*')
+            ->where('establishment_id','=',$id)
+            ->get();
+
+        foreach ($rating as $r){
+
+            $rate = Ratings::findOrFail($r->id);
+            $rate->delete();
+
+        }
+
+        foreach ($photos as $p){
+
+            $photo = EstablishmentPhotos::findOrFail($p->id);
+            $photo->delete();
+
+        }
+
+        foreach ($phones as $p){
+
+            $phone = PhonesEstab::findOrFail($p->id);
+            $phone->delete();
+
+        }
+
         $estab->delete();
 
         toastr()->success('Estabelecimento removido!');

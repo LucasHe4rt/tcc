@@ -150,29 +150,23 @@ class UsersController extends Controller
 
         foreach ($rating as $r){
 
-            $id = $r->id;
-
-            $rate = Ratings::findOrFail($id);
+            $rate = Ratings::findOrFail($r->id);
             $rate->delete();
 
         }
 
         foreach ($phoneUser as $p){
 
-            $id = $p->id;
-
-            $phone = PhonesUsers::findOrFail($id);
+            $phone = PhonesUsers::findOrFail($p->id);
             $phone->delete();
 
         }
 
         foreach ($establishment as $e){
 
-            $id = $e->id;
-
             $phoneEstab = DB::table('phones_estab')
                             ->select('*')
-                            ->where('establishment_id','=',$id)
+                            ->where('establishment_id','=',$e->id)
                             ->get();
 
             foreach ($phoneEstab as $p){
@@ -184,7 +178,7 @@ class UsersController extends Controller
 
             $photos = DB::table('photos')
                         ->select('*')
-                        ->where('establishment_id','=',$id)
+                        ->where('establishment_id','=',$e->id)
                         ->get();
 
             foreach ($photos as $p){
@@ -194,7 +188,7 @@ class UsersController extends Controller
 
             }
 
-            $estab = Establishments::findOrFail($id);
+            $estab = Establishments::findOrFail($e->id);
             $estab->delete();
 
         }

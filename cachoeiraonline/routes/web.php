@@ -53,7 +53,9 @@ Route::namespace('Dashboard')->group(function (){
             Route::get('/remove/{id}','EstablishmentsController@remove')->name('establishment.remove');
 
             Route::get('/photos/{id}', 'EstablishmentPhotoController@index')->name('establishment.photo');
+            Route::get('/photos/view/{id}', 'EstablishmentPhotoController@view')->name('establishment.photo.view');
             Route::post('/photos/{id}', 'EstablishmentPhotoController@upload')->name('establishment.photo.upload');
+            Route::get('/photos/remove/{id}', 'EstablishmentPhotoController@remove')->name('establishment.photo.remove');
 
         });
 
