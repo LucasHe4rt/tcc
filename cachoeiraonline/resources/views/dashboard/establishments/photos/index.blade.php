@@ -12,7 +12,7 @@
                     <div class="row">
                         @foreach($photos as $p)
                             <div class="col-md-3">
-                                <div class="card" style="width: 20rem;">
+                                <div class="card">
                                     <img class="card-img-top" src="{{asset('img/establishmentPhotos/'.$p->photo)}}" alt="Imagem">
                                     <div class="container">
                                         <p class="card-text">

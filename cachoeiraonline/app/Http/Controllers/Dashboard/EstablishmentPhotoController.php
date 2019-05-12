@@ -24,21 +24,41 @@ class EstablishmentPhotoController extends Controller
 
        foreach ($request->file('photos') as $photo){
 
-          $newName =  sha1($photo->getClientOriginalName()) . uniqid(). ".".$photo->getClientOriginalExtension();
+           $extensions = array(
+               'jpg',
+               'jpeg',
+               'png',
+               'mpeg'
+           );
 
-          $photo->move(public_path('img'.DIRECTORY_SEPARATOR.'establishmentPhotos'),$newName);
+           $extension = $photo->getClientOriginalExtension();
 
-          $establishment = Establishments::findOrFail($id);
-          $establishment->photos()->create([
-              'photo' => $newName,
-              'establishment_id' => $establishment->id
-          ]);
+           if(!in_array($extension,$extensions)){
 
-       }
+               toastr()->error('Formato não permitido!');
 
-       toastr()->success('Fotos adicionadas!');
+               return redirect()->back();
 
-       return redirect()->back();
+           }
+
+           $newName =  sha1($photo->getClientOriginalName()) . uniqid(). ".".$extension;
+
+           $photo->move(public_path('img'.DIRECTORY_SEPARATOR.'establishmentPhotos'),$newName);
+
+           $establishment = Establishments::findOrFail($id);
+           $establishment->photos()->create([
+               'photo' => $newName,
+               'establishment_id' => $establishment->id
+           ]);
+
+           toastr()->success('Fotos adicionadas!');
+
+           return redirect()->back();
+
+           }
+
+
+
 
     }
 
