@@ -38,7 +38,7 @@ class Establishments extends Model
 
     public function phones(){
 
-        return $this->hasMany(PhonesEstab::class);
+        return $this->hasMany(PhonesEstab::class,'establishment_id');
 
     }
 

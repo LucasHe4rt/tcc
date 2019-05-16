@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\PhonesEstab;
 use App\PhonesUsers;
 use App\Ratings;
+use App\Types;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -19,6 +20,32 @@ class UsersController extends Controller
         $users = User::all();
 
         return view('dashboard.users.index',['users' => $users]);
+
+    }
+
+    public function establishments($id){
+
+
+        $establishments = Establishments::where('user_id',$id)->get();
+
+        $types = Types::all();
+
+        $user = User::findOrFail($id);
+
+        if($establishments->count() == 0){
+
+            toastr()->error('Este usuário não possui estabelecimentos cadastrados.');
+
+            return redirect()->back();
+
+        }
+
+
+        return view('dashboard.users.establishments',[
+            'user' => $user,
+            'establishments' => $establishments,
+            'types' => $types
+        ]);
 
     }
 
@@ -199,4 +226,6 @@ class UsersController extends Controller
 
         return redirect()->route('user.index');
     }
+
+
 }
