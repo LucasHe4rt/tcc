@@ -74,7 +74,7 @@
 
                         <div class="form-group">
                             <label for="cpf" class="bmd-label-floating">CPF</label>
-                            <input type="text" class="form-control" name="cpf" id="cpf">
+                            <input data-mask="999.999.999-99" type="text" class="form-control" name="cpf" id="cpf">
                         </div>
                         <div class="form-group">
                             <label for="profile_photo" class="bmd-label-floating">Foto de perfil</label>
@@ -116,7 +116,7 @@
 
                             <div class="form-group">
                                 <label for="cpf">CPF</label>
-                                <input type="text" class="form-control" name="cpf" id="editCpf">
+                                <input data-mask="999.999.999-99" type="text" class="form-control" name="cpf" id="editCpf">
                             </div>
                             <div class="form-group">
                                 <label for="profile_photo">Foto de perfil</label>

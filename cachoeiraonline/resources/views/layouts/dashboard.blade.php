@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <link rel="stylesheet" href="{{asset('css/material-dashboard.css')}}">
     <link rel="stylesheet" href="{{asset('css/main.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('css/material-icons.css')}}" />
+    <link rel="stylesheet" href="{{asset('css/material-icons.css')}}" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 </head>
 <body class="dark-edition">
@@ -145,6 +145,7 @@
 <script src="{{asset('js/core/bootstrap-material-design.min.js')}}"></script>
 <script src="{{asset('js/plugins/perfect-scrollbar.jquery.min.js')}}"></script>
 <script src="{{asset('js/material-dashboard.js')}}"></script>
+<script src="{{asset('js/jquery.mask.js')}}"></script>
 <script src="{{asset('js/main.js')}}"></script>
 {!! toastr()->render() !!}
 </body>

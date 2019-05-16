@@ -203,10 +203,7 @@ class UsersController extends Controller
 
             }
 
-            $photos = DB::table('photos')
-                        ->select('*')
-                        ->where('establishment_id','=',$e->id)
-                        ->get();
+            $photos = EstablishmentPhotos::where('establishments_id',$e->id)->get();
 
             foreach ($photos as $p){
 
