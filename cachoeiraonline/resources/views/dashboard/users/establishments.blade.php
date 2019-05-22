@@ -32,7 +32,17 @@
 
                                            @endif
                                         </div>
-                                        <p class="card-description">{{substr($e->description,0,30)}}...</p>
+                                        <p class="card-description">
+                                            @if(strlen($e->description) > 30)
+
+                                                {{substr($e->description,0,30)}}...
+
+                                                @else
+
+                                                {{substr($e->description,0,30)}}
+
+                                            @endif
+                                            </p>
                                         <p class="card-text">
                                             <a data-toggle="modal" data-target="#editModal" class="text-info">Editar</a>
                                             <a href="{{route('establishment.remove',['id' => $e->id])}}" class="text-danger float-right">Excluir</a>

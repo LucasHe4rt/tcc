@@ -126,4 +126,12 @@ class EstablishmentsController extends Controller
 
         return redirect()->route('establishment.index');
     }
+
+    public function view($id){
+
+        $estab = Establishments::findOrFail($id);
+
+        return view('dashboard.establishments.view',['estab' => $estab]);
+
+    }
 }

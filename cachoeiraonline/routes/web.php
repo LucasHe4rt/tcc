@@ -52,7 +52,7 @@ Route::namespace('Dashboard')->group(function (){
             Route::get('/edit/{id}','EstablishmentsController@edit')->name('establishment.edit');
             Route::post('/update/{id}','EstablishmentsController@update')->name('establishment.update');
             Route::get('/remove/{id}','EstablishmentsController@remove')->name('establishment.remove');
-
+            Route::get('/view/{id}','EstablishmentsController@view')->name('establishment.view');
             Route::get('/photos/{id}', 'EstablishmentPhotoController@index')->name('establishment.photo');
             Route::get('/photos/view/{id}', 'EstablishmentPhotoController@view')->name('establishment.photo.view');
             Route::post('/photos/{id}', 'EstablishmentPhotoController@upload')->name('establishment.photo.upload');

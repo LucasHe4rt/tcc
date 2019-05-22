@@ -16,8 +16,6 @@ class EstablishmentPhotoController extends Controller
 
         return json_encode($arr);
 
-
-
     }
 
     public function upload(Request $request,$id){
