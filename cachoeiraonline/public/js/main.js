@@ -29,6 +29,8 @@ function establishmentEdit(id) {
 
         response.json().then(function (data) {
 
+            //console.log(data)
+
             const { id, name, cnpj, address, description, user_id, type_id} = data;
 
             $(`#editUser_id option[value=${user_id}]`).attr('selected','selected');
@@ -38,7 +40,7 @@ function establishmentEdit(id) {
             $("#editAddress").val(address);
             $("#editDescription").val(description);
 
-            document.getElementById("editEstablishmentModalLabel").innerText = `Editar ${name}`;
+            document.getElementById("editModalLabel").innerText = `Editar ${name}`;
             document.establishmentForm.action = `/dashboard/establishments/update/${id}`;
 
         })

@@ -47,7 +47,7 @@ class EstablishmentsController extends Controller
 
         toastr()->success('Estabelecimento adicionado!');
 
-        return redirect()->route('establishment.index');
+        return redirect()->back();
 
     }
 
@@ -84,20 +84,11 @@ class EstablishmentsController extends Controller
 
         $estab = Establishments::findOrFail($id);
 
-        $rating = DB::table('ratings')
-            ->select('*')
-            ->where('establishment_id','=',$id)
-            ->get();
+        $rating = Ratings::where("establishment_id",$id)->get();
 
-        $photos = DB::table('establishment_photos')
-            ->select('*')
-            ->where('establishments_id','=',$id)
-            ->get();
+        $photos = EstablishmentPhotos::where('establishments_id',$id)->get();
 
-        $phones = DB::table('phones_estab')
-            ->select('*')
-            ->where('establishment_id','=',$id)
-            ->get();
+        $phones = PhonesEstab::where('establishment_id',$id)->get();
 
         foreach ($rating as $r){
 
