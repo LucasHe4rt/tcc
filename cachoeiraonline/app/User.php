@@ -31,4 +31,10 @@ class User extends Authenticatable
 
     }
 
+    public function phones(){
+
+        return $this->hasMany(PhonesUsers::class);
+
+    }
+
 }

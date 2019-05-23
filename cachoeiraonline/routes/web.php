@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'UserViewController@index');
 
 Route::namespace('Dashboard')->group(function (){
 
@@ -41,6 +39,7 @@ Route::namespace('Dashboard')->group(function (){
             Route::get('/edit/{id}','UsersController@edit')->name('user.edit');
             Route::post('/update/{id}','UsersController@update')->name('user.update');
             Route::get('/remove/{id}','UsersController@remove')->name('user.remove');
+            Route::get('/view/{id}','UsersController@view')->name('user.view');
 
         });
 

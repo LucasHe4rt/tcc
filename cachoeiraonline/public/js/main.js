@@ -96,6 +96,8 @@ function phoneUserEdit(id) {
 
         response.json().then(function (data) {
 
+            //console.log(data)
+
             const {id, name, number, user_id} = data;
 
             $(`#editUser_id option[value=${user_id}]` ).attr('selected','selected');
@@ -178,18 +180,3 @@ function ratingEdit(id) {
     })
 
 }
-
-function addPhoto(id) {
-
-    fetch(`/dashboard/establishments/photos/${id}`).then(function (response) {
-
-        response.json().then(function (data) {
-
-            document.addPhotoForm.action = `/dashboard/establishments/photos/${id}`;
-
-        })
-
-    })
-
-}
-

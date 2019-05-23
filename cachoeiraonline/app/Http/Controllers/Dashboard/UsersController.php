@@ -224,5 +224,12 @@ class UsersController extends Controller
         return redirect()->route('user.index');
     }
 
+    public function view($id){
+
+        $user = User::findOrFail($id);
+
+        return view('dashboard.users.view',['user' => $user]);
+
+    }
 
 }
