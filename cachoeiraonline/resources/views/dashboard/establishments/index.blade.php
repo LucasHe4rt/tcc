@@ -32,7 +32,6 @@
                                         <td>{{date_format($e->created_at,"d/m/Y")}}</td>
                                         <td>{{date_format($e->updated_at,"d/m/Y")}}</td>
                                         <td>
-                                            <a style="color: #288c6c" href="{{route('establishment.photo.view',['id' => $e->id])}}"><i class="material-icons">collections</i></a>
                                             <a style="color: lightskyblue" href="{{route('establishment.view',['id' => $e->id])}}"><i class="material-icons">visibility</i></a>
                                             <a style="color: #9095a2;" onclick="establishmentEdit({{$e->id}})" href="javascript:void(0)" data-toggle="modal" data-target="#editEstablishmentModal"><i class="material-icons">settings</i></a>
                                             <a style="color: red" href="{{route('establishment.remove',['id' => $e->id])}}"><i class="material-icons">delete</i></a>

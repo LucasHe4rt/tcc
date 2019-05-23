@@ -121,8 +121,9 @@ class EstablishmentsController extends Controller
     public function view($id){
 
         $estab = Establishments::findOrFail($id);
+        $types = Types::all();
 
-        return view('dashboard.establishments.view',['estab' => $estab]);
+        return view('dashboard.establishments.view',['estab' => $estab,'types' => $types]);
 
     }
 }

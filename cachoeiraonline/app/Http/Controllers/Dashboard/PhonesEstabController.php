@@ -37,7 +37,7 @@ class PhonesEstabController extends Controller
 
         toastr()->success('Telefone de estabelecimento adicionado!');
 
-        return redirect()->route('phoneEstab.index');
+        return redirect()->back();
 
     }
 
@@ -74,7 +74,7 @@ class PhonesEstabController extends Controller
 
         toastr()->success('Telefone de estabelecimento removido!');
 
-        return redirect()->route('phoneEstab.index');
+        return redirect()->back();
 
     }
 

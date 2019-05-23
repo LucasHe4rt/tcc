@@ -10,13 +10,6 @@ use Illuminate\Http\Request;
 class EstablishmentPhotoController extends Controller
 {
 
-    public function index($id){
-
-        $arr = array('id' => $id);
-
-        return json_encode($arr);
-
-    }
 
     public function upload(Request $request,$id){
 
@@ -57,16 +50,6 @@ class EstablishmentPhotoController extends Controller
 
 
 
-
-    }
-
-    public function view($id){
-
-        $estab = Establishments::findOrFail($id);
-
-        $photos = $estab->photos;
-
-        return view('dashboard.establishments.photos.index',['photos' => $photos, 'estab' => $estab]);
 
     }
 
