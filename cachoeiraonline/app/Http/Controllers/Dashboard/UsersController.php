@@ -40,7 +40,6 @@ class UsersController extends Controller
 
         }
 
-
         return view('dashboard.users.establishments',[
             'user' => $user,
             'establishments' => $establishments,
@@ -139,7 +138,7 @@ class UsersController extends Controller
             $newName = sha1($photo->getClientOriginalName()) . uniqid() . '.' . $photo->getClientOriginalExtension();
             $photo->move(public_path('img'.DIRECTORY_SEPARATOR.'usersProfile'),$newName);
 
-            $user->profile_photo = 'img'.DIRECTORY_SEPARATOR.'usersProfile'.DIRECTORY_SEPARATOR.$newName;
+            $user->profile_photo = $newName;
 
             $user->save();
 
@@ -160,62 +159,54 @@ class UsersController extends Controller
 
         $user = User::findOrFail($id);
 
-        $rating = DB::table('ratings')
-                    ->select('*')
-                    ->where('user_id','=',$id)
-                    ->get();
+            if($user->ratings->count() > 0){
 
-        $phoneUser = DB::table('phones_users')
-                        ->select('*')
-                        ->where('user_id','=', $id)
-                        ->get();
+               $rate = $user->ratings;
 
-        $establishment = DB::table('establishments')
-                            ->select('*')
-                            ->where('user_id','=',$id)
-                            ->get();
+               foreach ($rate as $r){
 
-        foreach ($rating as $r){
+                   $r = Ratings::findOrFail($r->id);
+                   $r->delete();
+               }
 
-            $rate = Ratings::findOrFail($r->id);
-            $rate->delete();
+            };
 
-        }
+            if($user->phones->count() > 0){
 
-        foreach ($phoneUser as $p){
+                foreach ($user->phones as $p){
 
-            $phone = PhonesUsers::findOrFail($p->id);
-            $phone->delete();
+                    $phone = PhonesUsers::findOrFail($p->id);
+                    $phone->delete();
 
-        }
-
-        foreach ($establishment as $e){
-
-            $phoneEstab = DB::table('phones_estab')
-                            ->select('*')
-                            ->where('establishment_id','=',$e->id)
-                            ->get();
-
-            foreach ($phoneEstab as $p){
-
-                $phone = PhonesEstab::findOrFail($p->id);
-                $phone->delete();
+                }
 
             }
 
-            $photos = EstablishmentPhotos::where('establishments_id',$e->id)->get();
+            if($user->establishments->count() > 0){
 
-            foreach ($photos as $p){
+                foreach ($user->establishments as $e){
 
-                    $photo = EstablishmentPhotos::findOrFail($p->id);
-                    $photo->delete();
+                    $establishment = Establishments::findOrFail($e->id);
+
+                     foreach ($establishment->phones as $p){
+
+                         $phone = PhonesEstab::findOrFail($p->id);
+                         $phone->delete();
+
+                     }
+
+                     foreach ($establishment->photos as $photo){
+
+                         $p = EstablishmentPhotos::findOrFail($photo->id);
+                         $p->delete();
+
+                     }
+
+                    $establishment->delete();
+
+                }
 
             }
-
-            $estab = Establishments::findOrFail($e->id);
-            $estab->delete();
-
-        }
 
         $user->delete();
 
@@ -229,6 +220,20 @@ class UsersController extends Controller
         $user = User::findOrFail($id);
 
         return view('dashboard.users.view',['user' => $user]);
+
+    }
+
+    public function removePhoto($id){
+
+        $user = User::findOrFail($id);
+
+        $user->profile_photo = null;
+
+        toastr()->success('Foto de perfil removida');
+
+        $user->update();
+
+        return redirect()->back();
 
     }
 

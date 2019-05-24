@@ -37,6 +37,7 @@
                                         <td>{{date_format($u->created_at,'d/m/Y')}}</td>
                                         <td>{{date_format($u->updated_at,'d/m/Y')}}</td>
                                         <td>
+                                            <a style="color: lightskyblue" href="{{route('user.view',['id' => $u->id])}}"><i class="material-icons">visibility</i></a>
                                             <a href="{{route('user.establishments',['id' => $u->id])}}"><i class="material-icons">store_mall_directory</i></a>
                                             <a style="color: #9095a2;" onclick="userEdit({{$u->id}})" data-toggle="modal" data-target="#editUserModal" href="javascript:void(0)"><i class="material-icons">settings</i></a>
                                             <a style="color: red" href="{{route('user.remove',['id' => $u->id])}}"><i class="material-icons">delete</i></a>

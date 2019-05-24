@@ -17,9 +17,11 @@
                                 <div class="card-body">
                                     <strong>Foto de perfil: </strong>
                                     @if(isset($user->profile_photo))
-                                        <br><img src="{{asset('img/usersProfile/'.$user->profile_photo)}}"><br>
+                                        <br>
+                                        <a class="text-danger" href="{{route('user.removePhoto',['id' => $user->id])}}">Remover</a>
+                                        <br><img style="max-height: 150px;max-width: 200px" src="{{asset('img/usersProfile/'.$user->profile_photo)}}"><br>
                                         @else
-                                        Sem Foto<br>   
+                                        Sem Foto<br>
                                     @endif
                                     <strong>Nome: </strong>{{$user->name}}<br>
                                     <strong>Email: </strong>{{$user->email}}<br>
@@ -65,7 +67,7 @@
                                         <label for="editUser_id" class="bmd-label-floating">Usuário</label>
                                         <select disabled id="editUser_id" class="form-control" name="user_id">
                                             <option value="">Selecione um usuário</option>
-                                                <option selected value="{{$user->id}}">{{$user->name}}</option>                                            
+                                                <option selected value="{{$user->id}}">{{$user->name}}</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -101,7 +103,7 @@
                                     <label for="email">Email</label>
                                     <input type="email" class="form-control" name="email" id="editEmail">
                                 </div>
-    
+
                                 <div class="form-group">
                                     <label for="cpf">CPF</label>
                                     <input data-mask="999.999.999-99" type="text" class="form-control" name="cpf" id="editCpf">
