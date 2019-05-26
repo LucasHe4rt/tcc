@@ -11,7 +11,12 @@
 |
 */
 
-Route::get('/', 'UserViewController@index');
+Route::namespace('View')->group(function (){
+
+    Route::get('/', 'UserViewController@index');
+
+});
+
 
 Route::namespace('Dashboard')->group(function (){
 
