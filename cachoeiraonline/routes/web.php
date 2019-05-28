@@ -13,10 +13,15 @@
 
 Route::namespace('View')->group(function (){
 
-    Route::get('/', 'UserViewController@index');
+    Route::get('/', 'UserViewController@index')->name('index');
+    Route::get('category',function (){
+
+        return redirect()->back();
+
+    });
+    Route::get('category/{id}','UserViewController@viewEstab')->name('establishments');
 
 });
-
 
 Route::namespace('Dashboard')->group(function (){
 
