@@ -1,0 +1,44 @@
+.header{
+    margin-top: 90px;
+    text-align: center;
+}
+.header > h1{
+    font-size: 72px;
+}
+.header > p{
+    font-size: 20px;
+}
+.search-input{
+    border-radius: 20px;
+    border: 1px solid #1a1a1a;
+    background: #1a1a1a;
+    padding: 10px;
+    color: white;
+    width: 500px;
+}
+.search-icon{
+    background: transparent;
+    color: #1a1a1a;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #1a1a1a;
+    transition: 0.6s;
+}
+.search-icon:hover{
+    background: #1a1a1a;
+    color: white;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #1a1a1a;
+}
+.top-estabs{
+    margin-top: 80px;
+}
+.btn{
+    border-radius: 20px;
+}
+.btn:hover{
+    background: transparent;
+    color: #1a1a1a;
+    border: 1px solid #1a1a1a;
+}
