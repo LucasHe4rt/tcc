@@ -35,9 +35,9 @@ class UsersController extends Controller
         if($establishments->count() == 0){
 
             toastr()->error('Este usuário não possui estabelecimentos cadastrados.');
-
+            
             return redirect()->back();
-
+        
         }
 
         return view('dashboard.users.establishments',[
