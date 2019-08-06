@@ -65,8 +65,8 @@
                 <div class="header">
                     <h1> Cachoeira Online </h1>
                     <p> Seu guia para Cachoeira Paulista</p>
-                    <input class="search-input" type="text" name="" placeholder="Procurar...">
-                    <a href="#" class="search-icon"><i class="fas fa-search"></i></a>
+                    <input type="input" class="form-control search-input" placeholder="O que você procura?">
+                    
                 </div>
             <div class="top-estabs">
                 <h1> Destaques</h1>
@@ -77,7 +77,7 @@
                                 <img class="card-img" src="https://placeimg.com/640/480/any" alt="estabelecimento">
                                 <div class="card-body">
                                     <div class="card-title"> <h5>{{$topEstab->establishment->name}}</h5></div>
-                                    <p class="card-text"> {{$topEstab -> description}} </p>
+                                    <p class="card-text"> {{$topEstab -> establishment->description}} </p>
                                     <button type="submit" class="btn btn-primary"> Conferir </button>
                                 </div>
                             </div>
@@ -85,16 +85,21 @@
                     @endforeach
                 </div>
             </div>
-
-            <h1>Categorias</h1>
-
-                @foreach($categories as $category)
-
-                    {{$category}}<br>
-
-                @endforeach
-
             </div>
         </div>
+        <footer> 
+            <div class="container">
+                <p> Categorias </p>
+                <div class="row">
+                    @foreach($categories as $category)
+                        <div class="col-4">
+                            <a href=""> {{$category->name}} em Cachoeira Paulista </a>
+                        </div>
+                    @endforeach 
+                </div>
+                <span id="footer-copyright"> &#169; 2019 - Cachoeira Online </span>
+            </div>
+            </footer>
+            
     </body>
 </html>
