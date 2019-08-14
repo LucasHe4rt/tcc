@@ -37,18 +37,18 @@
             <div class="content">
             <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
                 <div class="container">
-                        <a class ="navbar-brand" href='#'> <img src="{{asset('img/logo.png')}}" alt="" srcset="" style="max-width: 100px; max-height: 60px;"> </a> 
+                        <a class ="navbar-brand" href='#'> </a> 
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#">Início <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Categorias</a>
-                            </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="#">Início <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Categorias</a>
+                                </li>
                             </ul>
                             <ul class="navbar-nav ml-auto">
                                 <li class="nav-item">
@@ -63,6 +63,7 @@
             </nav>
             <div class="container">
                 <div class="header">
+                        <img src="{{asset('img/logoBlack.png')}}" style="width: 350px; height: 350px;" alt="Logo">
                     <h1> Cachoeira Online </h1>
                     <p> Seu guia para Cachoeira Paulista</p>
                     <input type="input" class="form-control search-input" placeholder="O que você procura?">
