@@ -8,7 +8,6 @@ use App\Establishments;
 use App\PhonesEstab;
 use App\Ratings;
 use App\Types;
-use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -18,23 +17,20 @@ class EstablishmentsController extends Controller
     public function index(){
 
         $estabs = Establishments::all();
-        $users = User::all(['id','name']);
         $types = Types::all(['id','name']);
 
         return view('dashboard.establishments.index',[
             'estabs' => $estabs,
             'types' => $types,
-            'users' => $users
         ]);
 
     }
 
     public function store(){
 
-        $users = User::all(['id','name']);
         $types = Types::all(['id','name']);
 
-        return view('dashboard.establishments.store',['users' => $users,'types' => $types]);
+        return view('dashboard.establishments.store',['types' => $types]);
 
     }
 
@@ -61,7 +57,6 @@ class EstablishmentsController extends Controller
         $arr['address'] = $estab->address;
         $arr['description'] = $estab->description;
         $arr['type_id'] = $estab->type_id;
-        $arr['user_id'] = $estab->user_id;
 
         return json_encode($arr);
 

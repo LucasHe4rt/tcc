@@ -13,7 +13,6 @@
                             <thead class="text-primary">
                             <th>#</th>
                             <th>Avaliação</th>
-                            <th>Usuário</th>
                             <th>Estabelecimento</th>
                             <th>Criado em</th>
                             <th>Atualizado em</th>
@@ -24,7 +23,6 @@
                                 <tr>
                                     <td>{{$r->id}}</td>
                                     <td>{{$r->ratings}}</td>
-                                    <td>{{$r->user->name}}</td>
                                     <td>{{$r->establishment->name}}</td>
                                     <td>{{date_format($r->created_at,"d/m/Y")}}</td>
                                     <td>{{date_format($r->updated_at,"d/m/Y")}}</td>
@@ -55,15 +53,6 @@
                 <div class="modal-body">
                     <form method="post" action="{{route('ratings.new')}}">
                         @csrf
-                        <div class="form-group">
-                            <label for="user_id">Usuário</label>
-                            <select name="user_id" class="form-control" id="user_id">
-                                <option value="">Selecione um usuário...</option>
-                                @foreach($users as $u)
-                                    <option value="{{$u->id}}">{{$u->name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
                         <div class="form-group">
                             <label for="establishment_id">Estabelecimento</label>
                             <select name="establishment_id" class="form-control" id="establishment_id">
@@ -141,15 +130,6 @@
                 <div class="modal-body">
                     <form method="post" name="editRatingForm" action="">
                         @csrf
-                        <div class="form-group">
-                            <label for="user_id">Usuário</label>
-                            <select name="user_id" class="form-control" id="editUser_id">
-                                <option value="">Selecione um usuário...</option>
-                                @foreach($users as $u)
-                                    <option value="{{$u->id}}">{{$u->name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
                         <div class="form-group">
                             <label for="establishment_id">Estabelecimento</label>
                             <select name="establishment_id" class="form-control" id="editEstablishment_id">

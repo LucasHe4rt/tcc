@@ -19,11 +19,9 @@ class CreateEstablishmentsTable extends Migration
             $table->string('cnpj');
             $table->string('address');
             $table->text('description');
-            $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('type_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('type_id')->references('id')->on('types');
 
         });

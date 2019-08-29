@@ -94,13 +94,6 @@
                     <form method="post" name="establishmentForm" action="{{route('establishment.update',['id' => $estab->id])}}">
                         @csrf
                         <div class="form-group">
-                            <label for="editUser_id">Usuário</label>
-                            <select disabled id="editUser_id" class="form-control" name="user_id">
-                                <option value="">Selecione um usuário</option>
-                                    <option value="{{$estab->user->id}}">{{$estab->user->name}}</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
                             <label for="name" >Nome</label>
                             <input type="text" class="form-control" name="name" id="editName">
                         </div>

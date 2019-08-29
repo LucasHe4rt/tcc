@@ -9,7 +9,7 @@ class Ratings extends Model
 
     protected $fillable = [
 
-        'ratings', 'description','establishment_id', 'user_id'
+        'ratings', 'description','establishment_id'
 
     ];
 
@@ -19,10 +19,6 @@ class Ratings extends Model
 
     }
 
-    public function user(){
 
-        return $this->belongsTo(User::class);
-
-    }
 
 }

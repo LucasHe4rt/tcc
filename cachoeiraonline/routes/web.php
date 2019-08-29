@@ -40,20 +40,6 @@ Route::namespace('Dashboard')->group(function (){
 
         });
 
-        Route::prefix('users')->group(function (){
-
-            Route::get('','UsersController@index')->name('user.index');
-            Route::get('/store','UsersController@store')->name('user.store');
-            Route::post('/new','UsersController@new')->name('user.new');
-            Route::get('/establishments/{id}','UsersController@establishments')->name('user.establishments');
-            Route::get('/edit/{id}','UsersController@edit')->name('user.edit');
-            Route::post('/update/{id}','UsersController@update')->name('user.update');
-            Route::get('/remove/{id}','UsersController@remove')->name('user.remove');
-            Route::get('/view/{id}','UsersController@view')->name('user.view');
-            Route::GET('/remove/photo/{id}','UsersController@removePhoto')->name('user.removePhoto');
-
-        });
-
         Route::prefix('establishments')->group(function (){
 
             Route::get('','EstablishmentsController@index')->name('establishment.index');

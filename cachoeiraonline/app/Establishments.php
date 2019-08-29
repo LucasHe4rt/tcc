@@ -9,15 +9,10 @@ class Establishments extends Model
 
     protected $fillable = [
 
-        'name', 'cnpj', 'address', 'description', 'user_id','type_id'
+        'name', 'cnpj', 'address', 'description', 'type_id'
 
     ];
 
-    public function user(){
-
-        return $this->belongsTo(User::class);
-
-    }
 
     public function type(){
 

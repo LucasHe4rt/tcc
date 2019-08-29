@@ -15,7 +15,6 @@
                                 <th>Nome</th>
                                 <th>Cnpj</th>
                                 <th>Categoria</th>
-                                <th>Usuário</th>
                                 <th>Criado em</th>
                                 <th>Atualizado em</th>
                                 <th>Ações</th>
@@ -28,7 +27,6 @@
                                         <td>{{$e->name}}</td>
                                         <td>{{$e->cnpj}}</td>
                                         <td>{{$e->type->name}}</td>
-                                        <td>{{$e->user->name}}</td>
                                         <td>{{date_format($e->created_at,"d/m/Y")}}</td>
                                         <td>{{date_format($e->updated_at,"d/m/Y")}}</td>
                                         <td>
@@ -60,15 +58,6 @@
                 <div class="modal-body">
                     <form method="post" action="{{route('establishment.new')}}">
                         @csrf
-                        <div class="form-group">
-                            <label for="user_id" class="bmd-label-floating">Usuário</label>
-                            <select id="user_id" class="form-control" name="user_id">
-                                <option value="">Selecione um usuário</option>
-                                @foreach($users as $u)
-                                    <option value="{{$u->id}}">{{$u->name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
                         <div class="form-group">
                             <label for="name" class="bmd-label-floating">Nome</label>
                             <input type="text" class="form-control" name="name" id="name">
@@ -115,15 +104,6 @@
                 <div class="modal-body">
                     <form method="post" name="establishmentForm" action="">
                         @csrf
-                        <div class="form-group">
-                            <label for="editUser_id">Usuário</label>
-                            <select id="editUser_id" class="form-control" name="user_id">
-                                <option value="">Selecione um usuário</option>
-                                @foreach($users as $u)
-                                    <option value="{{$u->id}}">{{$u->name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
                         <div class="form-group">
                             <label for="name" >Nome</label>
                             <input type="text" class="form-control" name="name" id="editName">

@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Dashboard;
 use App\Establishments;
 use App\Http\Controllers\Controller;
 use App\Ratings;
-use App\User;
 use Illuminate\Http\Request;
 
 class RatingsController extends Controller
@@ -14,12 +13,10 @@ class RatingsController extends Controller
     public function index(){
 
         $ratings = Ratings::all();
-        $users = User::all(['id','name']);
         $establishments = Establishments::all(['id','name']);
 
         return view('dashboard.ratings.index',[
             'ratings' => $ratings,
-            'users' => $users,
             'establishments' => $establishments
         ]);
     }
@@ -46,11 +43,9 @@ class RatingsController extends Controller
             'ratings' => $rating->ratings,
             'description' => $rating->description,
             'establishment_id' => $rating->establishment_id,
-            'user_id' => $rating->user_id,
             'created_at' => $rating->created_at,
             'updated_at' => $rating->updated_at,
             'establishment_name' => $rating->establishment->name,
-            'user_name' => $rating->user->name
 
         );
 

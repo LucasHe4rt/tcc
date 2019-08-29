@@ -39,18 +39,6 @@
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="{{route('user.index')}}">
-                        <i class="material-icons">group</i>
-                        <p>Usuários</p>
-                    </a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="{{route('phoneUsers.index')}}">
-                        <i class="material-icons">contact_phone</i>
-                        <p>Telefones Usuários</p>
-                    </a>
-                </li>
-                <li class="nav-item ">
                     <a class="nav-link" href="{{route('types.index')}}">
                         <i class="material-icons">location_ons</i>
                         <p>Categorias</p>
