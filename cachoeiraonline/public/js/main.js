@@ -31,16 +31,15 @@ function establishmentEdit(id) {
 
             //console.log(data)
 
-            const { id, name, cnpj, address, description, user_id, type_id} = data;
+            const { id, name, cnpj, address, description, type_id} = data;
 
-            $(`#editUser_id option[value=${user_id}]`).attr('selected','selected');
             $(`#editType_id option[value=${type_id}]`).attr('selected','selected');
             $("#editName").val(name);
             $("#editCnpj").val(cnpj);
             $("#editAddress").val(address);
             $("#editDescription").val(description);
 
-            document.getElementById("editModalLabel").innerText = `Editar ${name}`;
+            document.getElementById("editEstablishmentModalLabel").innerText = `Editar ${name}`;
             document.establishmentForm.action = `/dashboard/establishments/update/${id}`;
 
         })
@@ -62,49 +61,6 @@ function phoneEstabEdit(id) {
 
             document.getElementById("editPhonesEstabModalLabel").innerText = `Editar telefone de  ${establishmentName}`;
             document.editPhoneEstabForm.action = `/dashboard/phoneEstab/update/${id}`;
-
-        })
-
-    })
-
-}
-
-function userEdit(id) {
-
-    fetch(`/dashboard/users/edit/${id}`).then(function (response) {
-
-        response.json().then(function (data) {
-
-            const {id, name, email, cpf} = data;
-
-            $("#editName").val(name);
-            $("#editEmail").val(email);
-            $("#editCpf").val(cpf);
-
-            document.getElementById("editUserModalLabel").innerText = `Editar ${name}`;
-            document.editUserForm.action = `/dashboard/users/update/${id}`;
-
-        })
-
-    })
-
-}
-
-function phoneUserEdit(id) {
-
-    fetch(`/dashboard/phoneUsers/edit/${id}`).then(function (response) {
-
-        response.json().then(function (data) {
-
-            //console.log(data)
-
-            const {id, name, number, user_id} = data;
-
-            $(`#editUser_id option[value=${user_id}]` ).attr('selected','selected');
-            $("#editNumberUser").val(number);
-
-            document.getElementById("editphoneUserModalLabel").innerText = `Editar telefone de ${name}`;
-            document.editPhoneUsersForm.action = `/dashboard/phoneUsers/update/${id}`;
 
         })
 
@@ -137,9 +93,8 @@ function ratingEdit(id) {
 
         response.json().then(function (data) {
 
-            const {ratings, description, user_id, establishment_id, user_name } = data;
+            const {ratings, description, establishment_id} = data;
 
-            $(`#editUser_id option[value=${user_id}]` ).attr('selected','selected');
             $(`#editEstablishment_id option[value=${establishment_id}]` ).attr('selected','selected');
 
            $("#editDescription").val(description);
@@ -172,7 +127,7 @@ function ratingEdit(id) {
 
            }
 
-            document.getElementById("ratingModalLabel").innerText = `Editar avaliação de ${user_name}`;
+            document.getElementById("ratingModalLabel").innerText = `Editar avaliação de `;
             document.editRatingForm.action = `/dashboard/ratings/update/${id}`;
 
         })
