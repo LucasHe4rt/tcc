@@ -141,14 +141,14 @@
                         @csrf
                         <div class="form-group">
                             <label for="establishment_id" class="bmd-label-floating">Estabelecimento</label>
-                            <select id="establishment_id" class="form-control" name="establishment_id">
+                            <select id="establishment_id" class="disabled form-control" name="establishment_id">
                                 <option value="">Selecione um estabelecimento</option>
                                     <option selected value="{{$estab->id}}">{{$estab->name}}</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="number" class="bmd-label-floating">Número</label>
-                            <input type="text" class="form-control" name="number" id="number">
+                            <input type="text" data-mask="(00) 000000000" class="form-control" name="number" id="number">
                         </div>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                         <button type="submit" class="btn btn-info">Adicionar</button>
@@ -174,13 +174,13 @@
                         @csrf
                         <div class="form-group">
                             <label for="editEstablishment_id" class="bmd-label-floating">Estabelecimento</label>
-                            <select disabled id="editEstablishment_id" class="form-control" name="establishment_id">
+                            <select id="editEstablishment_id" class="disabled form-control" name="establishment_id">
                                     <option selected value="{{$estab->id}}">{{$estab->name}}</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="number">Número</label>
-                            <input type="text" class="form-control" name="number" id="editNumber">
+                            <input type="text" data-mask="(00) 000000000" class="form-control" name="number" id="editNumber">
                         </div>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                         <button type="submit" class="btn btn-info">Atualizar</button>

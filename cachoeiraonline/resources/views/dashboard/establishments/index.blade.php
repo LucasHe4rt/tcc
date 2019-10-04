@@ -64,7 +64,7 @@
                         </div>
                         <div class="form-group">
                             <label for="cnpj" class="bmd-label-floating">Cnpj</label>
-                            <input type="text" class="form-control" name="cnpj" id="cnpj">
+                            <input type="text" data-mask="00.000.000/0000-00" class="form-control" name="cnpj" id="cnpj">
                         </div>
                         <div class="form-group">
                             <label for="type_id" class="bmd-label-floating">Categoria</label>
@@ -110,7 +110,7 @@
                         </div>
                         <div class="form-group">
                             <label for="cnpj" >Cnpj</label>
-                            <input type="text" class="form-control" name="cnpj" id="editCnpj">
+                            <input type="text" data-mask="00.000.000/0000-00" class="form-control" name="cnpj" id="editCnpj">
                         </div>
                         <div class="form-group">
                             <label for="editType_id">Categoria</label>

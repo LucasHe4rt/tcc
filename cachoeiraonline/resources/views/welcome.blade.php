@@ -1,4 +1,4 @@
-@extends('layouts.view')
+    @extends('layouts.view')
 @section('content')
 
 
@@ -48,14 +48,6 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Categorias</a>
-                                </li>
-                            </ul>
-                            <ul class="navbar-nav ml-auto">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Login</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Registro</a>
                                 </li>
                             </ul>
                         </div>

@@ -1,3 +1,5 @@
+create database cachoeira_online collate utf8_unicode_ci;
+
 create table admins(
 
     `id` int(2) primary key auto_increment,
