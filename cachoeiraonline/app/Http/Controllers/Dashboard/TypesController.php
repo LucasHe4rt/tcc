@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Establishments;
 use App\Http\Controllers\Controller;
 use App\Types;
 use Illuminate\Http\Request;
@@ -67,6 +68,14 @@ class TypesController extends Controller
     }
 
     public function remove($id){
+
+        $establishments = Establishments::where('type_id', $id);
+
+        if($establishments->count > 0){
+
+            toastr()->error('H� estabelecimentos cadastrados nesta categoria!');
+            return redirect()->route('types.index');
+        }
 
         $type = Types::findOrFail($id);
         $type->delete();
