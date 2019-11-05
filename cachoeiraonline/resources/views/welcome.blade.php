@@ -56,14 +56,12 @@
             <div class="content-principal">
                 <div class="container">
                     <div class="header">
-                        <img src="{{asset('img/logo.png')}}" style="width: 350px; height: 350px; margin-top: 40px;" alt="Logo">
+                        <img src="{{asset('img/logoBlack.png')}}" style="width: 350px; height: 350px; margin-top: 40px;" alt="Logo">
                         <h1> Cachoeira Online </h1>
                         <p> Seu guia para Cachoeira Paulista</p>
-                        <input type="input" class="form-control search-input" placeholder="O que você procura?">
-                        
                     </div>
                 <div class="top-estabs">
-                    <h1> Destaques</h1>
+                    <h1> Melhores avaliações </h1>
                     <div class="row">
                         @foreach($topEstabs as $topEstab)
                             <div class="col-4">
