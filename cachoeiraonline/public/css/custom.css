@@ -1,5 +1,4 @@
 .header{
-    margin-top: 90px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7,6 +6,7 @@
 }
 .header > h1{
     font-size: 72px;
+    color: white;
 }
 .header > p{
     font-size: 20px;
@@ -23,7 +23,12 @@
 }
 .top-estabs{
     margin-top: 80px;
-    margin-bottom: 40px;
+}
+.top-estabs > .col-4 {
+    max-width: 419px;
+}
+.top-estabs > h1 {
+    color:white;
 }
 .btn{
     border-radius: 3px;
@@ -57,4 +62,9 @@ footer > .container > .row > .col-4 > a:hover{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.content-principal{
+    background-image: url(../img/fundo.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
