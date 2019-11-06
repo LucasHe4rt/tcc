@@ -37,7 +37,7 @@
             <div class="content">
             <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
                 <div class="container">
-                        <a class ="navbar-brand" href='#'> </a> 
+                        <a class ="navbar-brand" href='#'> </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
@@ -54,9 +54,9 @@
                 </div>
             </nav>
             <div class="container">
-                
+                {{$categories}}
             </div>
-        <footer> 
+        <footer>
             <div class="container">
                 <p> Categorias </p>
                 <div class="row">
@@ -64,11 +64,11 @@
                         <div class="col-4">
                             <a href=""> {{$category->name}} em Cachoeira Paulista </a>
                         </div>
-                    @endforeach 
+                    @endforeach
                 </div>
                 <span id="footer-copyright"> &#169; 2019 - Cachoeira Online </span>
             </div>
             </footer>
-            
+
     </body>
 </html>

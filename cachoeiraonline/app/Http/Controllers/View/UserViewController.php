@@ -25,6 +25,14 @@ class UserViewController extends Controller
 
     }
 
+    public function category(){
+
+        $categories = Types::all();
+
+        return view('category',['categories' => $categories]);
+
+    }
+
     public function viewEstab($id){
 
         $estabs = Establishments::where('type_id',$id)->get();

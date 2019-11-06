@@ -11,14 +11,13 @@
 |
 */
 
+
+route::post('login', 'LoginController@login')->name('login');
+
 Route::namespace('View')->group(function (){
 
     Route::get('/', 'UserViewController@index')->name('index');
-    Route::get('category',function (){
-
-        return redirect()->back();
-
-    });
+    Route::get('category', 'UserViewController@category')->name('category');
     Route::get('category/{id}','UserViewController@viewEstab')->name('establishments');
 
 });
