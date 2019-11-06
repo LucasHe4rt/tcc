@@ -1,4 +1,4 @@
-@foreach($estabs  as $estab)
+
 
     {{$estab}}<br>
 
@@ -8,5 +8,5 @@
 
     @endforeach
 
-@endforeach
+
 

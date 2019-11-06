@@ -12,13 +12,15 @@
 */
 
 
+route::post('auth', 'LoginController@auth')->name('auth');
 route::post('login', 'LoginController@login')->name('login');
 
 Route::namespace('View')->group(function (){
 
     Route::get('/', 'UserViewController@index')->name('index');
-    Route::get('category', 'UserViewController@category')->name('category');
-    Route::get('category/{id}','UserViewController@viewEstab')->name('establishments');
+    Route::get('categories', 'UserViewController@categories')->name('categories');
+    Route::get('category/{id}','UserViewController@category')->name('category');
+    Route::get('establishment/{id}', 'UserViewController@viewEstab')->name('establishment');
 
 });
 

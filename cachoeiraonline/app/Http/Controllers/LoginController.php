@@ -9,7 +9,13 @@ use Illuminate\Support\Facades\Hash;
 class LoginController extends Controller
 {
 
-    public function login(Request $request){
+    public function login()
+    {
+        return view('login');
+    }
+
+    public function auth(Request $request)
+    {
 
         $username = $request->input('username');
         $password = $request->input('password');
@@ -45,5 +51,7 @@ class LoginController extends Controller
         }
 
     }
+
+
 
 }
