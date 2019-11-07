@@ -36,9 +36,10 @@ class UserViewController extends Controller
     public function category($id)
     {
 
+        $categories = Types::all();
         $category = Types::findOrFail($id);
 
-        return view('category', ['category' => $category]);
+        return view('category', ['category' => $category, 'categories' => $categories]);
 
     }
 
