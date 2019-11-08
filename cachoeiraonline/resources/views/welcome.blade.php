@@ -1,4 +1,4 @@
-    @extends('layouts.view')
+@extends('layouts.view')
 @section('content')
 
 
@@ -19,47 +19,47 @@
 
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
             <div class="content">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-                <div class="container">
-                        <a class ="navbar-brand" href='#'> </a> 
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav mr-auto">
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="#">Início <span class="sr-only">(current)</span></a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="">Categorias</a>
-                                </li>
-                            </ul>
-                        </div>
-                </div>
-            </nav>
+                <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                    <div class="container">
+                            <a class ="navbar-brand" href='#'> </a> 
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav mr-auto">
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="#">Início <span class="sr-only">(current)</span></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{route('categories')}}">Categorias</a>
+                                    </li>
+                                </ul>
+                                @if (Route::has('login'))
+                                    <ul class="navbar-nav ml-auto">
+                                        <li class="nav-item">
+                                            @auth
+                                                <a class="nav-link" href="{{ url('/dashboard') }}">Dashboard</a>
+                                            @else
+                                                <a class="nav-link" href="{{ route('login') }}">Login</a>
+
+                                                @if (Route::has('register'))
+                                                    <a class="nav-link" href="{{ route('register') }}">Register</a>
+                                                @endif
+                                            @endauth
+                                        </li>
+                                    </ul>
+                                @endif
+                            </div>
+                    </div>
+                </nav>
             <div class="content-principal">
                 <div class="container">
                     <div class="header">
                         <img src="{{asset('img/logoBlack.png')}}" style="width: 350px; height: 350px; margin-top: 40px;" alt="Logo">
                         <h1> Cachoeira Online </h1>
                         <p> Seu guia para Cachoeira Paulista</p>
-                    </div>
+                </div>
                 <div class="top-estabs">
                     <h1> Melhores avaliações </h1>
                     <div class="row">
@@ -86,7 +86,7 @@
                 <div class="row">
                     @foreach($categories as $category)
                         <div class="col-4">
-                            <a href=""> {{$category->name}} em Cachoeira Paulista </a>
+                            <a href=""> {{$category -> name}}</a>
                         </div>
                     @endforeach 
                 </div>

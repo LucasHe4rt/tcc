@@ -60,3 +60,18 @@ footer > .container > .row > .col-4 > a:hover{
     justify-content: center;
     align-items: center;
 }
+.card-img-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #1a1a1a;
+    background-size: 100%;
+}
+.card-img-text > p{
+    font-size: 30px;
+    color: white;
+}
+.categories-cards{
+    margin-top: 40px;
+    margin-right: 20px;
+}
