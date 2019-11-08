@@ -68,8 +68,8 @@
                                 <div class="card">
                                     <img class="card-img" src="https://placeimg.com/640/480/any" alt="estabelecimento">
                                     <div class="card-body">
-                                        <div class="card-title"> <h5>{{$topEstab->establishment->name}}</h5></div>
-                                        <p class="card-text"> {{$topEstab -> establishment->description}} </p>
+                                        <div class="card-title"> <h5>{{$topEstab -> establishment -> name}}</h5></div>
+                                        <p class="card-text"> {{$topEstab -> establishment -> description}} </p>
                                         <button type="submit" class="btn btn-primary"> Conferir </button>
                                     </div>
                                 </div>
