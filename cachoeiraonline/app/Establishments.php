@@ -14,26 +14,37 @@ class Establishments extends Model
     ];
 
 
-    public function type(){
+    public function type()
+    {
 
-        return $this->belongsTo(Types::class);
+        return $this->belongsTo(Types::class,'type_id');
 
     }
 
-    public function ratings(){
+    public function ratings()
+    {
 
         return $this->hasMany(Establishments::class);
 
     }
 
-    public function photos(){
+    public function photos()
+    {
 
         return $this->hasMany(EstablishmentPhotos::class);
     }
 
-    public function phones(){
+    public function phones()
+    {
 
         return $this->hasMany(PhonesEstab::class,'establishment_id');
+
+    }
+
+    public function rates()
+    {
+
+        return $this->hasMany(Ratings::class,'establishment_id');
 
     }
 
