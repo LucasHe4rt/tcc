@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Admins;
+use App\Types;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -11,7 +12,10 @@ class LoginController extends Controller
 
     public function login()
     {
-        return view('login');
+
+        $categories = Types::all();
+
+        return view('login', ['categories' => $categories]);
     }
 
     public function auth(Request $request)
@@ -21,6 +25,8 @@ class LoginController extends Controller
         $password = $request->input('password');
 
         $userVerify = Admins::where('username', $username);
+
+//        echo $userVerify->count();
 
         if($userVerify->count() > 0)
         {
@@ -40,6 +46,7 @@ class LoginController extends Controller
              }else{
 
                  toastr()->error('Senha incorreta!');
+                 return redirect()->route('login');
 
              }
 
@@ -47,7 +54,8 @@ class LoginController extends Controller
 
         }else{
 
-            return toastr()->error('Usuário não encontrado');
+            toastr()->error('Usuário não encontrado');
+            return redirect()->back();
         }
 
     }

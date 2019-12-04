@@ -13,7 +13,7 @@
 
 
 route::post('auth', 'LoginController@auth')->name('auth');
-route::post('login', 'LoginController@login')->name('login');
+route::get('login', 'LoginController@login')->name('login');
 
 Route::namespace('View')->group(function (){
 

@@ -1,23 +1,21 @@
 @extends('layouts.view')
 @section('content')
-
-
-
+    <div class="conteudo">
+        <div class="login-form mt-4">
+            <h1> Login </h1>
+            <form action="{{route('auth')}}" method="post">
+                @csrf
+                <div class="form-group">
+                    <label for="username"> Nome de usuário </label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Digite seu nome de usuário">
+                </div>
+                <div class="form-group">
+                    <label for="password"> Senha </label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Digite sua senha">
+                </div>
+                <button class="btn btn-primary btn-block"> Entrar </button>
+            </form>
+        </div>
+    </div>
 @endsection
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- CSS -->
-        <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
-        <link rel="stylesheet" href="{{asset('css/custom.css')}}">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
-    </head>
-    <body>
-
-    </body>
