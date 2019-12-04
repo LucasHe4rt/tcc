@@ -36,7 +36,7 @@
                             @auth
                                 <a class="nav-link" href="{{ url('/dashboard') }}">Dashboard</a>
                             @else
-                                <a class="nav-link" href="{{ route('login') }}">Login</a>
+                                <a class="nav-link" href="{{ route('login') }}">Painel adminstrativo</a>
                                 @if (Route::has('register'))
                                     <a class="nav-link" href="{{ route('register') }}">Register</a>
                                 @endif

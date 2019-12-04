@@ -14,7 +14,7 @@
                     @foreach($topEstabs as $topEstab)
                         <div class="col-4">
                             <div class="card">
-                                <img class="card-img" src="https://placeimg.com/640/480/any" alt="estabelecimento">
+                                <img class="card-img" src="{{asset('img/establishmentPhotos/'.$topEstab->establishment->photos()->first()->photo)}}" alt="estabelecimento">
                                 <div class="card-body">
                                     <div class="card-title"> <h5>{{$topEstab -> establishment -> name}}</h5></div>
                                     <p class="card-text"> {{$topEstab -> establishment -> description}} </p>
